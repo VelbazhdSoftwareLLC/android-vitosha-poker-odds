@@ -1454,7 +1454,7 @@ public class MonteCarlo {
 
 		running = true;
 
-		for (currentLoop = 0L; currentLoop < numberOfLoops; currentLoop++) {
+		for (currentLoop = 1L; currentLoop <= numberOfLoops; currentLoop++) {
 
 			allPlayersRegular();
 
