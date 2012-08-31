@@ -148,5 +148,7 @@
         <item>9</item>
     </string-array>
         <string name="stop_label">Stop</string>
+        <string name="exit">Exit</string>
+        <string name="about">About</string>
 
 </resources>
