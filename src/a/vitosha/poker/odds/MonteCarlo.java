@@ -395,7 +395,8 @@ public class MonteCarlo {
 		game.numberOfPlayers = numberOfPlayers;
 
 		for (int i = 0; i < Constants.MAX_NUMBER_OF_PLAYERS; i++) {
-			game.players[i].money = Constants.MIN_PLAYER_MONEY + (Math.abs(prng.nextInt())) % (Constants.MAX_PLAYER_MONEY - Constants.MIN_PLAYER_MONEY + 1);
+			game.players[i].money = Constants.MIN_PLAYER_MONEY
+					+ (Math.abs(prng.nextInt())) % (Constants.MAX_PLAYER_MONEY - Constants.MIN_PLAYER_MONEY + 1);
 			game.players[i].type = Constants.PLAYER_TYPE_REGULAR;
 			game.players[i].winsCounter = 0L;
 			game.players[i].tiesCounter = 0L;
@@ -734,28 +735,32 @@ public class MonteCarlo {
 		result.fourOfKind = 0;
 		result.straightFlush = 0;
 
-		if (hand[0].kind == hand[1].kind && hand[0].kind != hand[2].kind && hand[0].kind != hand[3].kind && hand[0].kind != hand[4].kind) {
+		if (hand[0].kind == hand[1].kind && hand[0].kind != hand[2].kind && hand[0].kind != hand[3].kind
+				&& hand[0].kind != hand[4].kind) {
 			result.onePair = hand[0].kind;
 			result.firstKicker = hand[2].kind;
 			result.secondKicker = hand[3].kind;
 			result.thirdKicker = hand[4].kind;
 		}
 
-		if (hand[1].kind == hand[2].kind && hand[1].kind != hand[0].kind && hand[1].kind != hand[3].kind && hand[1].kind != hand[4].kind) {
+		if (hand[1].kind == hand[2].kind && hand[1].kind != hand[0].kind && hand[1].kind != hand[3].kind
+				&& hand[1].kind != hand[4].kind) {
 			result.onePair = hand[1].kind;
 			result.firstKicker = hand[0].kind;
 			result.secondKicker = hand[3].kind;
 			result.thirdKicker = hand[4].kind;
 		}
 
-		if (hand[2].kind == hand[3].kind && hand[2].kind != hand[0].kind && hand[2].kind != hand[1].kind && hand[2].kind != hand[4].kind) {
+		if (hand[2].kind == hand[3].kind && hand[2].kind != hand[0].kind && hand[2].kind != hand[1].kind
+				&& hand[2].kind != hand[4].kind) {
 			result.onePair = hand[2].kind;
 			result.firstKicker = hand[0].kind;
 			result.secondKicker = hand[1].kind;
 			result.thirdKicker = hand[4].kind;
 		}
 
-		if (hand[3].kind == hand[4].kind && hand[3].kind != hand[0].kind && hand[3].kind != hand[1].kind && hand[3].kind != hand[2].kind) {
+		if (hand[3].kind == hand[4].kind && hand[3].kind != hand[0].kind && hand[3].kind != hand[1].kind
+				&& hand[3].kind != hand[2].kind) {
 			result.onePair = hand[3].kind;
 			result.firstKicker = hand[0].kind;
 			result.secondKicker = hand[1].kind;
@@ -793,19 +798,22 @@ public class MonteCarlo {
 		result.fourOfKind = 0;
 		result.straightFlush = 0;
 
-		if (hand[0].kind == hand[1].kind && hand[2].kind == hand[3].kind && hand[0].kind != hand[2].kind && hand[0].kind != hand[4].kind && hand[2].kind != hand[4].kind) {
+		if (hand[0].kind == hand[1].kind && hand[2].kind == hand[3].kind && hand[0].kind != hand[2].kind
+				&& hand[0].kind != hand[4].kind && hand[2].kind != hand[4].kind) {
 			result.twoPair = hand[0].kind;
 			result.onePair = hand[2].kind;
 			result.firstKicker = hand[4].kind;
 		}
 
-		if (hand[0].kind == hand[1].kind && hand[3].kind == hand[4].kind && hand[0].kind != hand[3].kind && hand[0].kind != hand[2].kind && hand[3].kind != hand[2].kind) {
+		if (hand[0].kind == hand[1].kind && hand[3].kind == hand[4].kind && hand[0].kind != hand[3].kind
+				&& hand[0].kind != hand[2].kind && hand[3].kind != hand[2].kind) {
 			result.twoPair = hand[0].kind;
 			result.onePair = hand[3].kind;
 			result.firstKicker = hand[2].kind;
 		}
 
-		if (hand[1].kind == hand[2].kind && hand[3].kind == hand[4].kind && hand[1].kind != hand[3].kind && hand[1].kind != hand[0].kind && hand[3].kind != hand[0].kind) {
+		if (hand[1].kind == hand[2].kind && hand[3].kind == hand[4].kind && hand[1].kind != hand[3].kind
+				&& hand[1].kind != hand[0].kind && hand[3].kind != hand[0].kind) {
 			result.twoPair = hand[1].kind;
 			result.onePair = hand[3].kind;
 			result.firstKicker = hand[0].kind;
@@ -842,19 +850,22 @@ public class MonteCarlo {
 		result.fourOfKind = 0;
 		result.straightFlush = 0;
 
-		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[0].kind != hand[3].kind && hand[0].kind != hand[4].kind && hand[3].kind != hand[4].kind) {
+		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[0].kind != hand[3].kind
+				&& hand[0].kind != hand[4].kind && hand[3].kind != hand[4].kind) {
 			result.threeOfKind = hand[0].kind;
 			result.firstKicker = hand[3].kind;
 			result.secondKicker = hand[4].kind;
 		}
 
-		if (hand[1].kind == hand[2].kind && hand[1].kind == hand[3].kind && hand[1].kind != hand[0].kind && hand[1].kind != hand[4].kind && hand[0].kind != hand[4].kind) {
+		if (hand[1].kind == hand[2].kind && hand[1].kind == hand[3].kind && hand[1].kind != hand[0].kind
+				&& hand[1].kind != hand[4].kind && hand[0].kind != hand[4].kind) {
 			result.threeOfKind = hand[1].kind;
 			result.firstKicker = hand[0].kind;
 			result.secondKicker = hand[4].kind;
 		}
 
-		if (hand[2].kind == hand[3].kind && hand[2].kind == hand[4].kind && hand[2].kind != hand[0].kind && hand[2].kind != hand[1].kind && hand[0].kind != hand[1].kind) {
+		if (hand[2].kind == hand[3].kind && hand[2].kind == hand[4].kind && hand[2].kind != hand[0].kind
+				&& hand[2].kind != hand[1].kind && hand[0].kind != hand[1].kind) {
 			result.threeOfKind = hand[2].kind;
 			result.firstKicker = hand[0].kind;
 			result.secondKicker = hand[1].kind;
@@ -1000,13 +1011,15 @@ public class MonteCarlo {
 		result.fourOfKind = 0;
 		result.straightFlush = 0;
 
-		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[3].kind == hand[4].kind && hand[0].kind != hand[3].kind) {
+		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[3].kind == hand[4].kind
+				&& hand[0].kind != hand[3].kind) {
 			result.threeOfKind = hand[0].kind;
 			result.twoPair = hand[3].kind;
 			result.fullHouse = 1;
 		}
 
-		if (hand[2].kind == hand[3].kind && hand[2].kind == hand[4].kind && hand[0].kind == hand[1].kind && hand[0].kind != hand[2].kind) {
+		if (hand[2].kind == hand[3].kind && hand[2].kind == hand[4].kind && hand[0].kind == hand[1].kind
+				&& hand[0].kind != hand[2].kind) {
 			result.threeOfKind = hand[2].kind;
 			result.twoPair = hand[0].kind;
 			result.fullHouse = 1;
@@ -1043,14 +1056,16 @@ public class MonteCarlo {
 		result.fourOfKind = 0;
 		result.straightFlush = 0;
 
-		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[0].kind == hand[3].kind && hand[0].kind != hand[4].kind) {
+		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[0].kind == hand[3].kind
+				&& hand[0].kind != hand[4].kind) {
 			result.onePair = hand[0].kind;
 			result.twoPair = hand[0].kind;
 			result.firstKicker = hand[4].kind;
 			result.fourOfKind = 1;
 		}
 
-		if (hand[1].kind == hand[2].kind && hand[1].kind == hand[3].kind && hand[1].kind == hand[4].kind && hand[1].kind != hand[0].kind) {
+		if (hand[1].kind == hand[2].kind && hand[1].kind == hand[3].kind && hand[1].kind == hand[4].kind
+				&& hand[1].kind != hand[0].kind) {
 			result.onePair = hand[1].kind;
 			result.twoPair = hand[1].kind;
 			result.firstKicker = hand[0].kind;
@@ -1195,7 +1210,12 @@ public class MonteCarlo {
 	 */
 	private void formFiveCardsHand(Card[] hand, int index, Player player, Board board) {
 
-		final int[][] combinations = { { 0, 0, 1, 1, 1, 1, 1 }, { 0, 1, 0, 1, 1, 1, 1 }, { 0, 1, 1, 0, 1, 1, 1 }, { 0, 1, 1, 1, 0, 1, 1 }, { 0, 1, 1, 1, 1, 0, 1 }, { 0, 1, 1, 1, 1, 1, 0 }, { 1, 0, 0, 1, 1, 1, 1 }, { 1, 0, 1, 0, 1, 1, 1 }, { 1, 0, 1, 1, 0, 1, 1 }, { 1, 0, 1, 1, 1, 0, 1 }, { 1, 0, 1, 1, 1, 1, 0 }, { 1, 1, 0, 0, 1, 1, 1 }, { 1, 1, 0, 1, 0, 1, 1 }, { 1, 1, 0, 1, 1, 0, 1 }, { 1, 1, 0, 1, 1, 1, 0 }, { 1, 1, 1, 0, 0, 1, 1 }, { 1, 1, 1, 0, 1, 0, 1 }, { 1, 1, 1, 0, 1, 1, 0 }, { 1, 1, 1, 1, 0, 0, 1 }, { 1, 1, 1, 1, 0, 1, 0 }, { 1, 1, 1, 1, 1, 0, 0 } };
+		final int[][] combinations = { { 0, 0, 1, 1, 1, 1, 1 }, { 0, 1, 0, 1, 1, 1, 1 }, { 0, 1, 1, 0, 1, 1, 1 },
+				{ 0, 1, 1, 1, 0, 1, 1 }, { 0, 1, 1, 1, 1, 0, 1 }, { 0, 1, 1, 1, 1, 1, 0 }, { 1, 0, 0, 1, 1, 1, 1 },
+				{ 1, 0, 1, 0, 1, 1, 1 }, { 1, 0, 1, 1, 0, 1, 1 }, { 1, 0, 1, 1, 1, 0, 1 }, { 1, 0, 1, 1, 1, 1, 0 },
+				{ 1, 1, 0, 0, 1, 1, 1 }, { 1, 1, 0, 1, 0, 1, 1 }, { 1, 1, 0, 1, 1, 0, 1 }, { 1, 1, 0, 1, 1, 1, 0 },
+				{ 1, 1, 1, 0, 0, 1, 1 }, { 1, 1, 1, 0, 1, 0, 1 }, { 1, 1, 1, 0, 1, 1, 0 }, { 1, 1, 1, 1, 0, 0, 1 },
+				{ 1, 1, 1, 1, 0, 1, 0 }, { 1, 1, 1, 1, 1, 0, 0 } };
 
 		Card[] allCards = new Card[Constants.NUMBER_OF_KNOWN_CARDS];
 
@@ -1267,7 +1287,9 @@ public class MonteCarlo {
 		while (done == 0) {
 			done = 1;
 			for (i = 0; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS - 1; i++) {
-				if (((hand[i].kind == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE : hand[i].kind) < ((hand[i + 1].kind == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE : hand[i + 1].kind)) {
+				if (((hand[i].kind == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
+						: hand[i].kind) < ((hand[i + 1].kind == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
+								: hand[i + 1].kind)) {
 					swap = hand[i];
 					hand[i] = hand[i + 1];
 					hand[i + 1] = swap;
@@ -1292,10 +1314,10 @@ public class MonteCarlo {
 		for (int i = 0; i < game.numberOfPlayers; i++) {
 			Card[] hand = new Card[Constants.NUMBER_OF_EVALUATION_HAND_CARDS];
 
+			game.players[i].handScore = 0L;
+
 			for (int j = 0; j < Constants.NUMBER_OF_POSSIBLE_HANDS_FOR_EVALUATION; j++) {
 				long score = 0L;
-
-				game.players[i].handScore = 0L;
 
 				formFiveCardsHand(hand, j, game.players[i], game.board);
 
@@ -1310,6 +1332,7 @@ public class MonteCarlo {
 				if (score > game.players[i].handScore) {
 					game.players[i].handScore = score;
 				}
+
 			}
 		}
 	}
@@ -1422,7 +1445,8 @@ public class MonteCarlo {
 	 * @date 09 Aug 2012
 	 */
 	synchronized public double willNotLooseIn() {
-		return ((double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter + game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) currentLoop);
+		return ((double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter
+				+ game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) currentLoop);
 	}
 
 	/**
@@ -1477,13 +1501,15 @@ public class MonteCarlo {
 			}
 
 			if (running == false) {
-				result = (double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter + game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) currentLoop;
+				result = (double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter
+						+ game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) currentLoop;
 
 				return (result);
 			}
 		}
 
-		result = (double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter + game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) numberOfLoops;
+		result = (double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter
+				+ game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) numberOfLoops;
 
 		return (result);
 	}
