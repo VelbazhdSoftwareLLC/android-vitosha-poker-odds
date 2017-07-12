@@ -22,8 +22,7 @@
  *                                                                             *
  ******************************************************************************/
 
-package a.vitosha.poker.odds;
-import a.vitosha.poker.odds.R;
+package eu.veldsoft.vitosha.poker.odds;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -35,6 +34,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import eu.veldsoft.vitosha.poker.odds.R;
+import eu.veldsoft.vitosha.poker.odds.model.MonteCarlo;
 
 /**
  * Main window interface.

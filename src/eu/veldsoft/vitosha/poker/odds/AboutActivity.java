@@ -1,4 +1,4 @@
-package a.vitosha.poker.odds;
+package eu.veldsoft.vitosha.poker.odds;
 
 import android.os.Bundle;
 import android.view.View;

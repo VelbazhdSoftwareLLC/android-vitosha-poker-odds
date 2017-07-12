@@ -22,7 +22,7 @@
  *                                                                             *
  ******************************************************************************/
 
-package a.vitosha.poker.odds;
+package eu.veldsoft.vitosha.poker.odds.model;
 
 import java.util.Random;
 
