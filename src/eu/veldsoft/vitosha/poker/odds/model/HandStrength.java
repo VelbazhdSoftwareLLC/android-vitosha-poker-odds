@@ -9,20 +9,176 @@ package eu.veldsoft.vitosha.poker.odds.model;
  * @date 09 Aug 2012
  */
 class HandStrength {
-	long fifthKicker;
-	long fourthKicker;
-	long thirdKicker;
-	long secondKicker;
-	long firstKicker;
-	long onePair;
-	long twoPair;
-	long threeOfKind;
-	long straight;
-	long flush;
-	long fullHouse;
-	long fourOfKind;
-	long straightFlush;
+	
+	/**
+	 * Strength of a fifth kicker.
+	 */
+	private long fifthKicker;
+	
+	/**
+	 * Strength of a Fourth kicker.
+	 */
+	private long fourthKicker;
+	
+	/**
+	 * Strength of a Third kicker.
+	 */
+	private long thirdKicker;
+	
+	/**
+	 * Strength of a Second kicker.
+	 */
+	private long secondKicker;
+	
+	/**
+	 * Strength of a First kicker.
+	 */
+	private long firstKicker;
+	
+	/**
+	 * Strength of a One pair.
+	 */
+	private long onePair;
+		
+	/**
+	 * Strength of a Two pair.
+	 */
+	private long twoPair;
+	
+	/**
+	 * Strength of a Three of a kind.
+	 */
+	private long threeOfKind;
+	
+	/**
+	 *Strength of a Straight.
+	 */
+	private long straight;
+	
+	/**
+	 * Strength of a Flush.
+	 */
+	private long flush;
+	
+	/**
+	 * Strength of a full house.
+	 */
+	private long fullHouse;
+	
+	/**
+	 * Strength of a four of a kind.
+	 */
+	private long fourOfKind;
+	
+	/**
+	 * Strength of a straight flush.
+	 */
+	private long straightFlush;
+	
+	public long getFifthKicker() {
+		return fifthKicker;
+	}
+	
+	public void setFifthKicker(long fifthKicker) {
+		this.fifthKicker = fifthKicker;
+	}
+	
+	public long getFourthKicker() {
+		return fourthKicker;
+	}
 
+	public void setFourthKicker(long fourthKicker) {
+		this.fourthKicker = fourthKicker;
+	}
+
+	public long getThirdKicker() {
+		return thirdKicker;
+	}
+
+	public void setThirdKicker(long thirdKicker) {
+		this.thirdKicker = thirdKicker;
+	}
+
+	public long getSecondKicker() {
+		return secondKicker;
+	}
+
+	public void setSecondKicker(long secondKicker) {
+		this.secondKicker = secondKicker;
+	}
+
+	public long getFirstKicker() {
+		return firstKicker;
+	}
+
+	public void setFirstKicker(long firstKicker) {
+		this.firstKicker = firstKicker;
+	}
+
+	public long getOnePair() {
+		return onePair;
+	}
+
+	public void setOnePair(long onePair) {
+		this.onePair = onePair;
+	}
+
+	public long getTwoPair() {
+		return twoPair;
+	}
+
+	public void setTwoPair(long twoPair) {
+		this.twoPair = twoPair;
+	}
+
+	public long getThreeOfKind() {
+		return threeOfKind;
+	}
+
+	public void setThreeOfKind(long threeOfKind) {
+		this.threeOfKind = threeOfKind;
+	}
+
+	public long getStraight() {
+		return straight;
+	}
+
+	public void setStraight(long straight) {
+		this.straight = straight;
+	}
+
+	public long getFlush() {
+		return flush;
+	}
+
+	public void setFlush(long flush) {
+		this.flush = flush;
+	}
+
+	public long getFullHouse() {
+		return fullHouse;
+	}
+
+	public void setFullHouse(long fullHouse) {
+		this.fullHouse = fullHouse;
+	}
+
+	public long getFourOfKind() {
+		return fourOfKind;
+	}
+
+	public void setFourOfKind(long fourOfKind) {
+		this.fourOfKind = fourOfKind;
+	}
+
+	public long getStraightFlush() {
+		return straightFlush;
+	}
+
+	public void setStraightFlush(long straightFlush) {
+		this.straightFlush = straightFlush;
+	}
+	
 	/**
 	 * 
 	 * @return

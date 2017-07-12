@@ -77,129 +77,129 @@ public class MonteCarlo {
 	 * @date 09 Aug 2012
 	 */
 	private void init(int numberOfPlayers) {
-		game.numberOfPlayers = numberOfPlayers;
+		game.setNumberOfPlayers(numberOfPlayers);
 
 		for (int i = 0; i < Constants.MAX_NUMBER_OF_PLAYERS; i++) {
-			game.players[i].money = Constants.MIN_PLAYER_MONEY
-					+ (Math.abs(prng.nextInt())) % (Constants.MAX_PLAYER_MONEY - Constants.MIN_PLAYER_MONEY + 1);
-			game.players[i].type = Constants.PLAYER_TYPE_REGULAR;
-			game.players[i].winsCounter = 0L;
-			game.players[i].tiesCounter = 0L;
+			game.getPlayers()[i].setMoney(Constants.MIN_PLAYER_MONEY
+					+ (Math.abs(prng.nextInt())) % (Constants.MAX_PLAYER_MONEY - Constants.MIN_PLAYER_MONEY + 1));
+			game.getPlayers()[i].setType(Constants.PLAYER_TYPE_REGULAR);
+			game.getPlayers()[i].setWinsCounter(0L);
+			game.getPlayers()[i].setTiesCounter(0L);
 		}
 
 		for (int i = 0; i < Constants.NUMBER_OF_CARDS; i++) {
-			game.deck.cards[i].known = false;
+			game.getDeck().getCards()[i].setKnown(false);
 		}
 
-		game.deck.cards[0].kind = Constants.CARD_KIND_TWO;
-		game.deck.cards[0].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[1].kind = Constants.CARD_KIND_THREE;
-		game.deck.cards[1].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[2].kind = Constants.CARD_KIND_FOUR;
-		game.deck.cards[2].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[3].kind = Constants.CARD_KIND_FIVE;
-		game.deck.cards[3].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[4].kind = Constants.CARD_KIND_SIX;
-		game.deck.cards[4].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[5].kind = Constants.CARD_KIND_SEVEN;
-		game.deck.cards[5].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[6].kind = Constants.CARD_KIND_EIGHT;
-		game.deck.cards[6].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[7].kind = Constants.CARD_KIND_NINE;
-		game.deck.cards[7].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[8].kind = Constants.CARD_KIND_TEN;
-		game.deck.cards[8].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[9].kind = Constants.CARD_KIND_JACK;
-		game.deck.cards[9].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[10].kind = Constants.CARD_KIND_QUEEN;
-		game.deck.cards[10].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[11].kind = Constants.CARD_KIND_KING;
-		game.deck.cards[11].suit = Constants.CARD_SUIT_CLUBS;
-		game.deck.cards[12].kind = Constants.CARD_KIND_ACE;
-		game.deck.cards[12].suit = Constants.CARD_SUIT_CLUBS;
+		game.getDeck().getCards()[0].setKind(Constants.CARD_KIND_TWO);
+		game.getDeck().getCards()[0].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[1].setKind(Constants.CARD_KIND_THREE);
+		game.getDeck().getCards()[1].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[2].setKind(Constants.CARD_KIND_FOUR);
+		game.getDeck().getCards()[2].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[3].setKind(Constants.CARD_KIND_FIVE);
+		game.getDeck().getCards()[3].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[4].setKind(Constants.CARD_KIND_SIX);
+		game.getDeck().getCards()[4].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[5].setKind(Constants.CARD_KIND_SEVEN);
+		game.getDeck().getCards()[5].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[6].setKind(Constants.CARD_KIND_EIGHT);
+		game.getDeck().getCards()[6].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[7].setKind(Constants.CARD_KIND_NINE);
+		game.getDeck().getCards()[7].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[8].setKind(Constants.CARD_KIND_TEN);
+		game.getDeck().getCards()[8].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[9].setKind(Constants.CARD_KIND_JACK);
+		game.getDeck().getCards()[9].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[10].setKind(Constants.CARD_KIND_QUEEN);
+		game.getDeck().getCards()[10].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[11].setKind(Constants.CARD_KIND_KING);
+		game.getDeck().getCards()[11].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[12].setKind(Constants.CARD_KIND_ACE);
+		game.getDeck().getCards()[12].setSuit(Constants.CARD_SUIT_CLUBS);
 
-		game.deck.cards[13].kind = Constants.CARD_KIND_TWO;
-		game.deck.cards[13].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[14].kind = Constants.CARD_KIND_THREE;
-		game.deck.cards[14].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[15].kind = Constants.CARD_KIND_FOUR;
-		game.deck.cards[15].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[16].kind = Constants.CARD_KIND_FIVE;
-		game.deck.cards[16].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[17].kind = Constants.CARD_KIND_SIX;
-		game.deck.cards[17].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[18].kind = Constants.CARD_KIND_SEVEN;
-		game.deck.cards[18].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[19].kind = Constants.CARD_KIND_EIGHT;
-		game.deck.cards[19].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[20].kind = Constants.CARD_KIND_NINE;
-		game.deck.cards[20].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[21].kind = Constants.CARD_KIND_TEN;
-		game.deck.cards[21].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[22].kind = Constants.CARD_KIND_JACK;
-		game.deck.cards[22].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[23].kind = Constants.CARD_KIND_QUEEN;
-		game.deck.cards[23].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[24].kind = Constants.CARD_KIND_KING;
-		game.deck.cards[24].suit = Constants.CARD_SUIT_DIAMONDS;
-		game.deck.cards[25].kind = Constants.CARD_KIND_ACE;
-		game.deck.cards[25].suit = Constants.CARD_SUIT_DIAMONDS;
+		game.getDeck().getCards()[13].setKind(Constants.CARD_KIND_TWO);
+		game.getDeck().getCards()[13].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[14].setKind(Constants.CARD_KIND_THREE);
+		game.getDeck().getCards()[14].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[15].setKind(Constants.CARD_KIND_FOUR);
+		game.getDeck().getCards()[15].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[16].setKind(Constants.CARD_KIND_FIVE);
+		game.getDeck().getCards()[16].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[17].setKind(Constants.CARD_KIND_SIX);
+		game.getDeck().getCards()[17].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[18].setKind(Constants.CARD_KIND_SEVEN);
+		game.getDeck().getCards()[18].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[19].setKind(Constants.CARD_KIND_EIGHT);
+		game.getDeck().getCards()[19].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[20].setKind(Constants.CARD_KIND_NINE);
+		game.getDeck().getCards()[20].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[21].setKind(Constants.CARD_KIND_TEN);
+		game.getDeck().getCards()[21].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[22].setKind(Constants.CARD_KIND_JACK);
+		game.getDeck().getCards()[22].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[23].setKind(Constants.CARD_KIND_QUEEN);
+		game.getDeck().getCards()[23].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[24].setKind(Constants.CARD_KIND_KING);
+		game.getDeck().getCards()[24].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[25].setKind(Constants.CARD_KIND_ACE);
+		game.getDeck().getCards()[25].setKind(Constants.CARD_SUIT_DIAMONDS);
 
-		game.deck.cards[26].kind = Constants.CARD_KIND_TWO;
-		game.deck.cards[26].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[27].kind = Constants.CARD_KIND_THREE;
-		game.deck.cards[27].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[28].kind = Constants.CARD_KIND_FOUR;
-		game.deck.cards[28].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[29].kind = Constants.CARD_KIND_FIVE;
-		game.deck.cards[29].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[30].kind = Constants.CARD_KIND_SIX;
-		game.deck.cards[30].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[31].kind = Constants.CARD_KIND_SEVEN;
-		game.deck.cards[31].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[32].kind = Constants.CARD_KIND_EIGHT;
-		game.deck.cards[32].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[33].kind = Constants.CARD_KIND_NINE;
-		game.deck.cards[33].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[34].kind = Constants.CARD_KIND_TEN;
-		game.deck.cards[34].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[35].kind = Constants.CARD_KIND_JACK;
-		game.deck.cards[35].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[36].kind = Constants.CARD_KIND_QUEEN;
-		game.deck.cards[36].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[37].kind = Constants.CARD_KIND_KING;
-		game.deck.cards[37].suit = Constants.CARD_SUIT_HEARTS;
-		game.deck.cards[38].kind = Constants.CARD_KIND_ACE;
-		game.deck.cards[38].suit = Constants.CARD_SUIT_HEARTS;
+		game.getDeck().getCards()[26].setKind(Constants.CARD_KIND_TWO);
+		game.getDeck().getCards()[26].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[27].setKind(Constants.CARD_KIND_THREE);
+		game.getDeck().getCards()[27].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[28].setKind(Constants.CARD_KIND_FOUR);
+		game.getDeck().getCards()[28].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[29].setKind(Constants.CARD_KIND_FIVE);
+		game.getDeck().getCards()[29].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[30].setKind(Constants.CARD_KIND_SIX);
+		game.getDeck().getCards()[30].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[31].setKind(Constants.CARD_KIND_SEVEN);
+		game.getDeck().getCards()[31].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[32].setKind(Constants.CARD_KIND_EIGHT);
+		game.getDeck().getCards()[32].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[33].setKind(Constants.CARD_KIND_NINE);
+		game.getDeck().getCards()[33].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[34].setKind(Constants.CARD_KIND_TEN);
+		game.getDeck().getCards()[34].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[35].setKind(Constants.CARD_KIND_JACK);
+		game.getDeck().getCards()[35].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[36].setKind(Constants.CARD_KIND_QUEEN);
+		game.getDeck().getCards()[36].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[37].setKind(Constants.CARD_KIND_KING);
+		game.getDeck().getCards()[37].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[38].setKind(Constants.CARD_KIND_ACE);
+		game.getDeck().getCards()[38].setKind(Constants.CARD_SUIT_HEARTS);
 
-		game.deck.cards[39].kind = Constants.CARD_KIND_TWO;
-		game.deck.cards[39].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[40].kind = Constants.CARD_KIND_THREE;
-		game.deck.cards[40].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[41].kind = Constants.CARD_KIND_FOUR;
-		game.deck.cards[41].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[42].kind = Constants.CARD_KIND_FIVE;
-		game.deck.cards[42].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[43].kind = Constants.CARD_KIND_SIX;
-		game.deck.cards[43].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[44].kind = Constants.CARD_KIND_SEVEN;
-		game.deck.cards[44].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[45].kind = Constants.CARD_KIND_EIGHT;
-		game.deck.cards[45].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[46].kind = Constants.CARD_KIND_NINE;
-		game.deck.cards[46].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[47].kind = Constants.CARD_KIND_TEN;
-		game.deck.cards[47].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[48].kind = Constants.CARD_KIND_JACK;
-		game.deck.cards[48].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[49].kind = Constants.CARD_KIND_QUEEN;
-		game.deck.cards[49].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[50].kind = Constants.CARD_KIND_KING;
-		game.deck.cards[50].suit = Constants.CARD_SUIT_SPADES;
-		game.deck.cards[51].kind = Constants.CARD_KIND_ACE;
-		game.deck.cards[51].suit = Constants.CARD_SUIT_SPADES;
+		game.getDeck().getCards()[39].setKind(Constants.CARD_KIND_TWO);
+		game.getDeck().getCards()[39].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[40].setKind(Constants.CARD_KIND_THREE);
+		game.getDeck().getCards()[40].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[41].setKind(Constants.CARD_KIND_FOUR);
+		game.getDeck().getCards()[41].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[42].setKind(Constants.CARD_KIND_FIVE);
+		game.getDeck().getCards()[42].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[43].setKind(Constants.CARD_KIND_SIX);
+		game.getDeck().getCards()[43].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[44].setKind(Constants.CARD_KIND_SEVEN);
+		game.getDeck().getCards()[44].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[45].setKind(Constants.CARD_KIND_EIGHT);
+		game.getDeck().getCards()[45].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[46].setKind(Constants.CARD_KIND_NINE);
+		game.getDeck().getCards()[46].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[47].setKind(Constants.CARD_KIND_TEN);
+		game.getDeck().getCards()[47].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[48].setKind(Constants.CARD_KIND_JACK);
+		game.getDeck().getCards()[48].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[49].setKind(Constants.CARD_KIND_QUEEN);
+		game.getDeck().getCards()[49].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[50].setKind(Constants.CARD_KIND_KING);
+		game.getDeck().getCards()[50].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[51].setKind(Constants.CARD_KIND_ACE);
+		game.getDeck().getCards()[51].setSuit(Constants.CARD_SUIT_SPADES);
 
-		game.pot.numberOfSplits = 1;
+		game.getPot().setNumberOfSplits(1);
 	}
 
 	/**
@@ -212,12 +212,12 @@ public class MonteCarlo {
 	 */
 	private void shuffle() {
 		for (int i = 0; i < Constants.NUMBER_OF_CARDS; i++) {
-			Card swap = game.deck.cards[i];
+			Card swap = game.getDeck().getCards()[i];
 
 			int r = prng.nextInt(Constants.NUMBER_OF_CARDS);
 
-			game.deck.cards[i] = game.deck.cards[r];
-			game.deck.cards[r] = swap;
+			game.getDeck().getCards()[i] = game.getDeck().getCards()[r];
+			game.getDeck().getCards()[r] = swap;
 		}
 	}
 
@@ -226,72 +226,72 @@ public class MonteCarlo {
 	 */
 	private void fillKnownCards() {
 		int playerCardsDeckIndex = 2 * Constants.HUMAN_PLAYER_INDEX;
-		int tableCardsDeckIndex = 2 * game.numberOfPlayers;
+		int tableCardsDeckIndex = 2 * game.getNumberOfPlayers();
 
 		for (int i = 0; i < knownCards.length(); i += 2) {
 			Card card = new Card();
-			card.known = true;
+			card.setKnown(true);
 
 			switch (knownCards.charAt(i)) {
 			case '2':
-				card.kind = Constants.CARD_KIND_TWO;
+				card.setKind(Constants.CARD_KIND_TWO);
 				break;
 			case '3':
-				card.kind = Constants.CARD_KIND_THREE;
+				card.setKind(Constants.CARD_KIND_THREE);
 				break;
 			case '4':
-				card.kind = Constants.CARD_KIND_FOUR;
+				card.setKind(Constants.CARD_KIND_FOUR);
 				break;
 			case '5':
-				card.kind = Constants.CARD_KIND_FIVE;
+				card.setKind(Constants.CARD_KIND_FIVE);
 				break;
 			case '6':
-				card.kind = Constants.CARD_KIND_SIX;
+				card.setKind(Constants.CARD_KIND_SIX);
 				break;
 			case '7':
-				card.kind = Constants.CARD_KIND_SEVEN;
+				card.setKind(Constants.CARD_KIND_SEVEN);
 				break;
 			case '8':
-				card.kind = Constants.CARD_KIND_EIGHT;
+				card.setKind(Constants.CARD_KIND_EIGHT);
 				break;
 			case '9':
-				card.kind = Constants.CARD_KIND_NINE;
+				card.setKind(Constants.CARD_KIND_NINE);
 				break;
 			case 'T':
-				card.kind = Constants.CARD_KIND_TEN;
+				card.setKind(Constants.CARD_KIND_TEN);
 				break;
 			case 'J':
-				card.kind = Constants.CARD_KIND_JACK;
+				card.setKind(Constants.CARD_KIND_JACK);
 				break;
 			case 'Q':
-				card.kind = Constants.CARD_KIND_QUEEN;
+				card.setKind(Constants.CARD_KIND_QUEEN);
 				break;
 			case 'K':
-				card.kind = Constants.CARD_KIND_KING;
+				card.setKind(Constants.CARD_KIND_KING);
 				break;
 			case 'A':
-				card.kind = Constants.CARD_KIND_ACE;
+				card.setKind(Constants.CARD_KIND_ACE);
 				break;
 			}
 
 			switch (knownCards.charAt(i + 1)) {
 			case 'C':
-				card.suit = Constants.CARD_SUIT_CLUBS;
+				card.setSuit(Constants.CARD_SUIT_CLUBS);
 				break;
 			case 'D':
-				card.suit = Constants.CARD_SUIT_DIAMONDS;
+				card.setSuit(Constants.CARD_SUIT_DIAMONDS);
 				break;
 			case 'H':
-				card.suit = Constants.CARD_SUIT_HEARTS;
+				card.setSuit(Constants.CARD_SUIT_HEARTS);
 				break;
 			case 'S':
-				card.suit = Constants.CARD_SUIT_SPADES;
+				card.setSuit(Constants.CARD_SUIT_SPADES);
 				break;
 			}
 
 			int j;
 			for (j = 0; j < Constants.NUMBER_OF_CARDS; j++) {
-				if (game.deck.cards[j].suit == card.suit && game.deck.cards[j].kind == card.kind) {
+				if (game.getDeck().getCards()[j].getSuit() == card.getSuit() && game.getDeck().getCards()[j].getKind() == card.getKind()) {
 					break;
 				}
 			}
@@ -300,26 +300,26 @@ public class MonteCarlo {
 			 * Put known cards on their places.
 			 */
 			if (i == 0) {
-				game.deck.cards[j] = game.deck.cards[playerCardsDeckIndex + 0];
-				game.deck.cards[playerCardsDeckIndex + 0] = card;
+				game.getDeck().getCards()[j] = game.getDeck().getCards()[playerCardsDeckIndex + 0];
+				game.getDeck().getCards()[playerCardsDeckIndex + 0] = card;
 			} else if (i == 2) {
-				game.deck.cards[j] = game.deck.cards[playerCardsDeckIndex + 1];
-				game.deck.cards[playerCardsDeckIndex + 1] = card;
+				game.getDeck().getCards()[j] = game.getDeck().getCards()[playerCardsDeckIndex + 1];
+				game.getDeck().getCards()[playerCardsDeckIndex + 1] = card;
 			} else if (i == 4) {
-				game.deck.cards[j] = game.deck.cards[tableCardsDeckIndex + 0];
-				game.deck.cards[tableCardsDeckIndex + 0] = card;
+				game.getDeck().getCards()[j] = game.getDeck().getCards()[tableCardsDeckIndex + 0];
+				game.getDeck().getCards()[tableCardsDeckIndex + 0] = card;
 			} else if (i == 6) {
-				game.deck.cards[j] = game.deck.cards[tableCardsDeckIndex + 1];
-				game.deck.cards[tableCardsDeckIndex + 1] = card;
+				game.getDeck().getCards()[j] = game.getDeck().getCards()[tableCardsDeckIndex + 1];
+				game.getDeck().getCards()[tableCardsDeckIndex + 1] = card;
 			} else if (i == 8) {
-				game.deck.cards[j] = game.deck.cards[tableCardsDeckIndex + 2];
-				game.deck.cards[tableCardsDeckIndex + 2] = card;
+				game.getDeck().getCards()[j] = game.getDeck().getCards()[tableCardsDeckIndex + 2];
+				game.getDeck().getCards()[tableCardsDeckIndex + 2] = card;
 			} else if (i == 10) {
-				game.deck.cards[j] = game.deck.cards[tableCardsDeckIndex + 3];
-				game.deck.cards[tableCardsDeckIndex + 3] = card;
+				game.getDeck().getCards()[j] = game.getDeck().getCards()[tableCardsDeckIndex + 3];
+				game.getDeck().getCards()[tableCardsDeckIndex + 3] = card;
 			} else if (i == 12) {
-				game.deck.cards[j] = game.deck.cards[tableCardsDeckIndex + 4];
-				game.deck.cards[tableCardsDeckIndex + 4] = card;
+				game.getDeck().getCards()[j] = game.getDeck().getCards()[tableCardsDeckIndex + 4];
+				game.getDeck().getCards()[tableCardsDeckIndex + 4] = card;
 			}
 		}
 	}
@@ -333,25 +333,25 @@ public class MonteCarlo {
 	 * @date 09 Aug 2012
 	 */
 	private void deal() {
-		game.pot.numberOfSplits = 1;
+		game.getPot().setNumberOfSplits(1);
 
 		int j = 0;
-		for (int i = 0; i < game.numberOfPlayers; i++) {
-			game.players[i].hand[0] = game.deck.cards[j];
+		for (int i = 0; i < game.getNumberOfPlayers(); i++) {
+			game.getPlayers()[i].getHand()[0] = game.getDeck().getCards()[j];
 			j++;
-			game.players[i].hand[1] = game.deck.cards[j];
+			game.getPlayers()[i].getHand()[1] = game.getDeck().getCards()[j];
 			j++;
 		}
 
-		game.board.flop[0] = game.deck.cards[j];
+		game.getBoard().getFlop()[0] = game.getDeck().getCards()[j];
 		j++;
-		game.board.flop[1] = game.deck.cards[j];
+		game.getBoard().getFlop()[1] = game.getDeck().getCards()[j];
 		j++;
-		game.board.flop[2] = game.deck.cards[j];
+		game.getBoard().getFlop()[2] = game.getDeck().getCards()[j];
 		j++;
-		game.board.turn = game.deck.cards[j];
+		game.getBoard().setTurn(game.getDeck().getCards()[j]);
 		j++;
-		game.board.river = game.deck.cards[j];
+		game.getBoard().setRiver(game.getDeck().getCards()[j]);
 		j++;
 	}
 
@@ -364,8 +364,8 @@ public class MonteCarlo {
 	 * @date 09 Aug 2012
 	 */
 	private void allPlayersRegular() {
-		for (int i = 0; i < game.numberOfPlayers; i++) {
-			game.players[i].type = Constants.PLAYER_TYPE_REGULAR;
+		for (int i = 0; i < game.getNumberOfPlayers(); i++) {
+			game.getPlayers()[i].setType(Constants.PLAYER_TYPE_REGULAR);
 		}
 	}
 
@@ -383,13 +383,13 @@ public class MonteCarlo {
 		if (dealerIndex < 0) {
 			dealerIndex = 0;
 		}
-		if (dealerIndex >= game.numberOfPlayers) {
-			dealerIndex = game.numberOfPlayers - 1;
+		if (dealerIndex >= game.getNumberOfPlayers()) {
+			dealerIndex = game.getNumberOfPlayers() - 1;
 		}
 
-		game.players[dealerIndex].type = Constants.PLAYER_TYPE_DEALER;
-		game.players[(dealerIndex + 1) % game.numberOfPlayers].type = Constants.PLAYER_TYPE_SMALL_BLIND;
-		game.players[(dealerIndex + 2) % game.numberOfPlayers].type = Constants.PLAYER_TYPE_BIG_BLIND;
+		game.getPlayers()[dealerIndex].setType(Constants.PLAYER_TYPE_DEALER);
+		game.getPlayers()[(dealerIndex + 1) % game.getNumberOfPlayers()].setType(Constants.PLAYER_TYPE_SMALL_BLIND);
+		game.getPlayers()[(dealerIndex + 2) % game.getNumberOfPlayers()].setType(Constants.PLAYER_TYPE_BIG_BLIND);
 	}
 
 	/**
@@ -406,50 +406,50 @@ public class MonteCarlo {
 	 */
 	private HandStrength evaluateOnePair(Card[] hand) {
 		HandStrength result = new HandStrength();
-		result.fifthKicker = 0;
-		result.fourthKicker = 0;
-		result.thirdKicker = 0;
-		result.secondKicker = 0;
-		result.firstKicker = 0;
-		result.onePair = 0;
-		result.twoPair = 0;
-		result.threeOfKind = 0;
-		result.straight = 0;
-		result.flush = 0;
-		result.fullHouse = 0;
-		result.fourOfKind = 0;
-		result.straightFlush = 0;
+		result.setFifthKicker(0);
+		result.setFourthKicker(0);
+		result.setThirdKicker(0);
+		result.setSecondKicker(0);
+		result.setFirstKicker(0);
+		result.setOnePair(0);
+		result.setTwoPair(0);
+		result.setThreeOfKind(0);
+		result.setStraight(0);
+		result.setFlush(0);
+		result.setFullHouse(0);
+		result.setFourOfKind(0);
+		result.setStraightFlush(0);
 
-		if (hand[0].kind == hand[1].kind && hand[0].kind != hand[2].kind && hand[0].kind != hand[3].kind
-				&& hand[0].kind != hand[4].kind) {
-			result.onePair = hand[0].kind;
-			result.firstKicker = hand[2].kind;
-			result.secondKicker = hand[3].kind;
-			result.thirdKicker = hand[4].kind;
+		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() != hand[2].getKind() && hand[0].getKind() != hand[3].getKind()
+				&& hand[0].getKind() != hand[4].getKind()) {
+			result.setOnePair(hand[0].getKind());
+			result.setFirstKicker(hand[2].getKind());
+			result.setSecondKicker(hand[3].getKind());
+			result.setThirdKicker(hand[4].getKind());
 		}
 
-		if (hand[1].kind == hand[2].kind && hand[1].kind != hand[0].kind && hand[1].kind != hand[3].kind
-				&& hand[1].kind != hand[4].kind) {
-			result.onePair = hand[1].kind;
-			result.firstKicker = hand[0].kind;
-			result.secondKicker = hand[3].kind;
-			result.thirdKicker = hand[4].kind;
+		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() != hand[0].getKind() && hand[1].getKind() != hand[3].getKind()
+				&& hand[1].getKind() != hand[4].getKind()) {
+			result.setOnePair(hand[1].getKind());
+			result.setFirstKicker(hand[0].getKind());
+			result.setSecondKicker(hand[3].getKind());
+			result.setThirdKicker(hand[4].getKind());
 		}
 
-		if (hand[2].kind == hand[3].kind && hand[2].kind != hand[0].kind && hand[2].kind != hand[1].kind
-				&& hand[2].kind != hand[4].kind) {
-			result.onePair = hand[2].kind;
-			result.firstKicker = hand[0].kind;
-			result.secondKicker = hand[1].kind;
-			result.thirdKicker = hand[4].kind;
+		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() != hand[0].getKind() && hand[2].getKind() != hand[1].getKind()
+				&& hand[2].getKind() != hand[4].getKind()) {
+			result.setOnePair(hand[2].getKind());
+			result.setFirstKicker(hand[0].getKind());
+			result.setSecondKicker(hand[1].getKind());
+			result.setThirdKicker(hand[4].getKind());
 		}
 
-		if (hand[3].kind == hand[4].kind && hand[3].kind != hand[0].kind && hand[3].kind != hand[1].kind
-				&& hand[3].kind != hand[2].kind) {
-			result.onePair = hand[3].kind;
-			result.firstKicker = hand[0].kind;
-			result.secondKicker = hand[1].kind;
-			result.thirdKicker = hand[2].kind;
+		if (hand[3].getKind() == hand[4].getKind() && hand[3].getKind() != hand[0].getKind() && hand[3].getKind() != hand[1].getKind()
+				&& hand[3].getKind() != hand[2].getKind()) {
+			result.setOnePair(hand[3].getKind());
+			result.setFirstKicker(hand[0].getKind());
+			result.setSecondKicker(hand[1].getKind());
+			result.setThirdKicker(hand[2].getKind());
 		}
 
 		return (result);
@@ -469,39 +469,39 @@ public class MonteCarlo {
 	 */
 	private HandStrength evaluateTwoPair(Card[] hand) {
 		HandStrength result = new HandStrength();
-		result.fifthKicker = 0;
-		result.fourthKicker = 0;
-		result.thirdKicker = 0;
-		result.secondKicker = 0;
-		result.firstKicker = 0;
-		result.onePair = 0;
-		result.twoPair = 0;
-		result.threeOfKind = 0;
-		result.straight = 0;
-		result.flush = 0;
-		result.fullHouse = 0;
-		result.fourOfKind = 0;
-		result.straightFlush = 0;
+		result.setFifthKicker(0);
+		result.setFourthKicker(0);
+		result.setThirdKicker(0);
+		result.setSecondKicker(0);
+		result.setFirstKicker(0);
+		result.setOnePair(0);
+		result.setTwoPair(0);
+		result.setThreeOfKind(0);
+		result.setStraight(0);
+		result.setFlush(0);
+		result.setFullHouse(0);
+		result.setFourOfKind(0);
+		result.setStraightFlush(0);
 
-		if (hand[0].kind == hand[1].kind && hand[2].kind == hand[3].kind && hand[0].kind != hand[2].kind
-				&& hand[0].kind != hand[4].kind && hand[2].kind != hand[4].kind) {
-			result.twoPair = hand[0].kind;
-			result.onePair = hand[2].kind;
-			result.firstKicker = hand[4].kind;
+		if (hand[0].getKind() == hand[1].getKind() && hand[2].getKind() == hand[3].getKind() && hand[0].getKind() != hand[2].getKind()
+				&& hand[0].getKind() != hand[4].getKind() && hand[2].getKind() != hand[4].getKind()) {
+			result.setTwoPair(hand[0].getKind());
+			result.setOnePair(hand[2].getKind());
+			result.setFirstKicker(hand[4].getKind());
 		}
 
-		if (hand[0].kind == hand[1].kind && hand[3].kind == hand[4].kind && hand[0].kind != hand[3].kind
-				&& hand[0].kind != hand[2].kind && hand[3].kind != hand[2].kind) {
-			result.twoPair = hand[0].kind;
-			result.onePair = hand[3].kind;
-			result.firstKicker = hand[2].kind;
+		if (hand[0].getKind() == hand[1].getKind() && hand[3].getKind() == hand[4].getKind() && hand[0].getKind() != hand[3].getKind()
+				&& hand[0].getKind() != hand[2].getKind() && hand[3].getKind() != hand[2].getKind()) {
+			result.setTwoPair(hand[0].getKind());
+			result.setOnePair(hand[3].getKind());
+			result.setFirstKicker(hand[2].getKind());
 		}
 
-		if (hand[1].kind == hand[2].kind && hand[3].kind == hand[4].kind && hand[1].kind != hand[3].kind
-				&& hand[1].kind != hand[0].kind && hand[3].kind != hand[0].kind) {
-			result.twoPair = hand[1].kind;
-			result.onePair = hand[3].kind;
-			result.firstKicker = hand[0].kind;
+		if (hand[1].getKind() == hand[2].getKind() && hand[3].getKind() == hand[4].getKind() && hand[1].getKind() != hand[3].getKind()
+				&& hand[1].getKind() != hand[0].getKind() && hand[3].getKind() != hand[0].getKind()) {
+			result.setTwoPair(hand[1].getKind());
+			result.setOnePair(hand[3].getKind());
+			result.setFirstKicker(hand[0].getKind());
 		}
 
 		return (result);
@@ -521,39 +521,39 @@ public class MonteCarlo {
 	 */
 	private HandStrength evaluateThreeOfKind(Card[] hand) {
 		HandStrength result = new HandStrength();
-		result.fifthKicker = 0;
-		result.fourthKicker = 0;
-		result.thirdKicker = 0;
-		result.secondKicker = 0;
-		result.firstKicker = 0;
-		result.onePair = 0;
-		result.twoPair = 0;
-		result.threeOfKind = 0;
-		result.straight = 0;
-		result.flush = 0;
-		result.fullHouse = 0;
-		result.fourOfKind = 0;
-		result.straightFlush = 0;
+		result.setFifthKicker(0);
+		result.setFourthKicker(0);
+		result.setThirdKicker(0);
+		result.setSecondKicker(0);
+		result.setFirstKicker(0);
+		result.setOnePair(0);
+		result.setTwoPair(0);
+		result.setThreeOfKind(0);
+		result.setStraight(0);
+		result.setFlush(0);
+		result.setFullHouse(0);
+		result.setFourOfKind(0);
+		result.setStraightFlush(0);
 
-		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[0].kind != hand[3].kind
-				&& hand[0].kind != hand[4].kind && hand[3].kind != hand[4].kind) {
-			result.threeOfKind = hand[0].kind;
-			result.firstKicker = hand[3].kind;
-			result.secondKicker = hand[4].kind;
+		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind() && hand[0].getKind() != hand[3].getKind()
+				&& hand[0].getKind() != hand[4].getKind() && hand[3].getKind() != hand[4].getKind()) {
+			result.setThreeOfKind(hand[0].getKind());
+			result.setFirstKicker(hand[3].getKind());
+			result.setSecondKicker(hand[4].getKind());
 		}
 
-		if (hand[1].kind == hand[2].kind && hand[1].kind == hand[3].kind && hand[1].kind != hand[0].kind
-				&& hand[1].kind != hand[4].kind && hand[0].kind != hand[4].kind) {
-			result.threeOfKind = hand[1].kind;
-			result.firstKicker = hand[0].kind;
-			result.secondKicker = hand[4].kind;
+		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() == hand[3].getKind() && hand[1].getKind() != hand[0].getKind()
+				&& hand[1].getKind() != hand[4].getKind() && hand[0].getKind() != hand[4].getKind()) {
+			result.setThreeOfKind(hand[1].getKind());
+			result.setFirstKicker(hand[0].getKind());
+			result.setSecondKicker(hand[4].getKind());
 		}
 
-		if (hand[2].kind == hand[3].kind && hand[2].kind == hand[4].kind && hand[2].kind != hand[0].kind
-				&& hand[2].kind != hand[1].kind && hand[0].kind != hand[1].kind) {
-			result.threeOfKind = hand[2].kind;
-			result.firstKicker = hand[0].kind;
-			result.secondKicker = hand[1].kind;
+		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() == hand[4].getKind() && hand[2].getKind() != hand[0].getKind()
+				&& hand[2].getKind() != hand[1].getKind() && hand[0].getKind() != hand[1].getKind()) {
+			result.setThreeOfKind(hand[2].getKind());
+			result.setFirstKicker(hand[0].getKind());
+			result.setSecondKicker(hand[1].getKind());
 		}
 
 		return (result);
@@ -576,43 +576,43 @@ public class MonteCarlo {
 		int i;
 		int found = 0;
 
-		result.fifthKicker = 0;
-		result.fourthKicker = 0;
-		result.thirdKicker = 0;
-		result.secondKicker = 0;
-		result.firstKicker = 0;
-		result.onePair = 0;
-		result.twoPair = 0;
-		result.threeOfKind = 0;
-		result.straight = 0;
-		result.flush = 0;
-		result.fullHouse = 0;
-		result.fourOfKind = 0;
-		result.straightFlush = 0;
+		result.setFifthKicker(0);
+		result.setFourthKicker(0);
+		result.setThirdKicker(0);
+		result.setSecondKicker(0);
+		result.setFirstKicker(0);
+		result.setOnePair(0);
+		result.setTwoPair(0);
+		result.setThreeOfKind(0);
+		result.setStraight(0);
+		result.setFlush(0);
+		result.setFullHouse(0);
+		result.setFourOfKind(0);
+		result.setStraightFlush(0);
 
 		found = 1;
 		for (i = 0; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS - 1; i++) {
-			if (hand[i].kind - hand[i + 1].kind != 1) {
+			if (hand[i].getKind() - hand[i + 1].getKind() != 1) {
 				found = 0;
 				break;
 			}
 		}
 		if (found == 1) {
-			result.straight = hand[0].kind;
+			result.setStraight(hand[0].getKind());
 		}
 
 		found = 1;
-		if (hand[0].kind != Constants.CARD_KIND_ACE || hand[1].kind != Constants.CARD_KIND_FIVE) {
+		if (hand[0].getKind() != Constants.CARD_KIND_ACE || hand[1].getKind() != Constants.CARD_KIND_FIVE) {
 			found = 0;
 		}
 		for (i = 1; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS - 1; i++) {
-			if (hand[i].kind - hand[i + 1].kind != 1) {
+			if (hand[i].getKind() - hand[i + 1].getKind() != 1) {
 				found = 0;
 				break;
 			}
 		}
 		if (found == 1) {
-			result.straight = hand[1].kind;
+			result.setStraight(hand[1].getKind());
 		}
 
 		return (result);
@@ -635,34 +635,34 @@ public class MonteCarlo {
 		int i;
 		int found = 0;
 
-		result.fifthKicker = 0;
-		result.fourthKicker = 0;
-		result.thirdKicker = 0;
-		result.secondKicker = 0;
-		result.firstKicker = 0;
-		result.onePair = 0;
-		result.twoPair = 0;
-		result.threeOfKind = 0;
-		result.straight = 0;
-		result.flush = 0;
-		result.fullHouse = 0;
-		result.fourOfKind = 0;
-		result.straightFlush = 0;
+		result.setFifthKicker(0);
+		result.setFourthKicker(0);
+		result.setThirdKicker(0);
+		result.setSecondKicker(0);
+		result.setFirstKicker(0);
+		result.setOnePair(0);
+		result.setTwoPair(0);
+		result.setThreeOfKind(0);
+		result.setStraight(0);
+		result.setFlush(0);
+		result.setFullHouse(0);
+		result.setFourOfKind(0);
+		result.setStraightFlush(0);
 
 		found = 1;
 		for (i = 1; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS; i++) {
-			if (hand[0].suit != hand[i].suit) {
+			if (hand[0].getSuit() != hand[i].getSuit()) {
 				found = 0;
 				break;
 			}
 		}
 		if (found == 1) {
-			result.flush = 1;
-			result.firstKicker = hand[0].kind;
-			result.secondKicker = hand[1].kind;
-			result.thirdKicker = hand[2].kind;
-			result.fourthKicker = hand[3].kind;
-			result.fifthKicker = hand[4].kind;
+			result.setFlush(1);
+			result.setFirstKicker(hand[0].getKind());
+			result.setSecondKicker(hand[1].getKind());
+			result.setThirdKicker(hand[2].getKind());
+			result.setFourthKicker(hand[3].getKind());
+			result.setFifthKicker(hand[4].getKind());
 		}
 
 		return (result);
@@ -682,32 +682,32 @@ public class MonteCarlo {
 	 */
 	private HandStrength evaluateFullHouse(Card[] hand) {
 		HandStrength result = new HandStrength();
-		result.fifthKicker = 0;
-		result.fourthKicker = 0;
-		result.thirdKicker = 0;
-		result.secondKicker = 0;
-		result.firstKicker = 0;
-		result.onePair = 0;
-		result.twoPair = 0;
-		result.threeOfKind = 0;
-		result.straight = 0;
-		result.flush = 0;
-		result.fullHouse = 0;
-		result.fourOfKind = 0;
-		result.straightFlush = 0;
+		result.setFifthKicker(0);
+		result.setFourthKicker(0);
+		result.setThirdKicker(0);
+		result.setSecondKicker(0);
+		result.setFirstKicker(0);
+		result.setOnePair(0);
+		result.setTwoPair(0);
+		result.setThreeOfKind(0);
+		result.setStraight(0);
+		result.setFlush(0);
+		result.setFullHouse(0);
+		result.setFourOfKind(0);
+		result.setStraightFlush(0);
 
-		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[3].kind == hand[4].kind
-				&& hand[0].kind != hand[3].kind) {
-			result.threeOfKind = hand[0].kind;
-			result.twoPair = hand[3].kind;
-			result.fullHouse = 1;
+		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind() && hand[3].getKind() == hand[4].getKind()
+				&& hand[0].getKind() != hand[3].getKind()) {
+			result.setThreeOfKind(hand[0].getKind());
+			result.setTwoPair(hand[3].getKind());
+			result.setFullHouse(1);
 		}
 
-		if (hand[2].kind == hand[3].kind && hand[2].kind == hand[4].kind && hand[0].kind == hand[1].kind
-				&& hand[0].kind != hand[2].kind) {
-			result.threeOfKind = hand[2].kind;
-			result.twoPair = hand[0].kind;
-			result.fullHouse = 1;
+		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() == hand[4].getKind() && hand[0].getKind() == hand[1].getKind()
+				&& hand[0].getKind() != hand[2].getKind()) {
+			result.setThreeOfKind(hand[2].getKind());
+			result.setTwoPair(hand[0].getKind());
+			result.setFullHouse(1);
 		}
 
 		return (result);
@@ -727,34 +727,34 @@ public class MonteCarlo {
 	 */
 	private HandStrength evaluateFourOfKind(Card[] hand) {
 		HandStrength result = new HandStrength();
-		result.fifthKicker = 0;
-		result.fourthKicker = 0;
-		result.thirdKicker = 0;
-		result.secondKicker = 0;
-		result.firstKicker = 0;
-		result.onePair = 0;
-		result.twoPair = 0;
-		result.threeOfKind = 0;
-		result.straight = 0;
-		result.flush = 0;
-		result.fullHouse = 0;
-		result.fourOfKind = 0;
-		result.straightFlush = 0;
+		result.setFifthKicker(0);
+		result.setFourthKicker(0);
+		result.setThirdKicker(0);
+		result.setSecondKicker(0);
+		result.setFirstKicker(0);
+		result.setOnePair(0);
+		result.setTwoPair(0);
+		result.setThreeOfKind(0);
+		result.setStraight(0);
+		result.setFlush(0);
+		result.setFullHouse(0);
+		result.setFourOfKind(0);
+		result.setStraightFlush(0);
 
-		if (hand[0].kind == hand[1].kind && hand[0].kind == hand[2].kind && hand[0].kind == hand[3].kind
-				&& hand[0].kind != hand[4].kind) {
-			result.onePair = hand[0].kind;
-			result.twoPair = hand[0].kind;
-			result.firstKicker = hand[4].kind;
-			result.fourOfKind = 1;
+		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind() && hand[0].getKind() == hand[3].getKind()
+				&& hand[0].getKind() != hand[4].getKind()) {
+			result.setOnePair(hand[0].getKind());
+			result.setTwoPair(hand[0].getKind());
+			result.setFirstKicker(hand[4].getKind());
+			result.setFourOfKind(1);
 		}
 
-		if (hand[1].kind == hand[2].kind && hand[1].kind == hand[3].kind && hand[1].kind == hand[4].kind
-				&& hand[1].kind != hand[0].kind) {
-			result.onePair = hand[1].kind;
-			result.twoPair = hand[1].kind;
-			result.firstKicker = hand[0].kind;
-			result.fourOfKind = 1;
+		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() == hand[3].getKind() && hand[1].getKind() == hand[4].getKind()
+				&& hand[1].getKind() != hand[0].getKind()) {
+			result.setOnePair(hand[1].getKind());
+			result.setTwoPair(hand[1].getKind());
+			result.setFirstKicker(hand[0].getKind());
+			result.setFourOfKind(1);
 		}
 
 		return (result);
@@ -780,10 +780,10 @@ public class MonteCarlo {
 
 		straight = evaluateStraight(hand);
 		flush = evaluateFlush(hand);
-		if (straight.straight == 1 && flush.flush == 1) {
-			result.flush = flush.flush;
-			result.straight = straight.straight;
-			result.straightFlush = 1;
+		if (straight.getStraight() == 1 && flush.getFlush() == 1) {
+			result.setFlush(flush.getFlush());
+			result.setStraight(straight.getStraight());
+			result.setStraightFlush(1);
 		}
 
 		return (result);
@@ -803,28 +803,28 @@ public class MonteCarlo {
 	 */
 	private HandStrength evaluateKickers(Card[] hand) {
 		HandStrength result = new HandStrength();
-		result.fifthKicker = 0;
-		result.fourthKicker = 0;
-		result.thirdKicker = 0;
-		result.secondKicker = 0;
-		result.firstKicker = 0;
-		result.onePair = 0;
-		result.twoPair = 0;
-		result.threeOfKind = 0;
-		result.straight = 0;
-		result.flush = 0;
-		result.fullHouse = 0;
-		result.fourOfKind = 0;
-		result.straightFlush = 0;
+		result.setFifthKicker(0);
+		result.setFourthKicker(0);
+		result.setThirdKicker(0);
+		result.setSecondKicker(0);
+		result.setFirstKicker(0);
+		result.setOnePair(0);
+		result.setTwoPair(0);
+		result.setThreeOfKind(0);
+		result.setStraight(0);
+		result.setFlush(0);
+		result.setFullHouse(0);
+		result.setFourOfKind(0);
+		result.setStraightFlush(0);
 
 		/*
 		 * Check for hand without combination.
 		 */
-		result.firstKicker = hand[0].kind;
-		result.secondKicker = hand[1].kind;
-		result.thirdKicker = hand[2].kind;
-		result.fourthKicker = hand[3].kind;
-		result.fifthKicker = hand[4].kind;
+		result.setFirstKicker(hand[0].getKind());
+		result.setSecondKicker(hand[1].getKind());
+		result.setThirdKicker(hand[2].getKind());
+		result.setFourthKicker(hand[3].getKind());
+		result.setFifthKicker(hand[4].getKind());
 
 		return (result);
 	}
@@ -904,13 +904,13 @@ public class MonteCarlo {
 
 		Card[] allCards = new Card[Constants.NUMBER_OF_KNOWN_CARDS];
 
-		allCards[0] = player.hand[0];
-		allCards[1] = player.hand[1];
-		allCards[2] = board.flop[0];
-		allCards[3] = board.flop[1];
-		allCards[4] = board.flop[2];
-		allCards[5] = board.turn;
-		allCards[6] = board.river;
+		allCards[0] = player.getHand()[0];
+		allCards[1] = player.getHand()[1];
+		allCards[2] = board.getFlop()[0];
+		allCards[3] = board.getFlop()[1];
+		allCards[4] = board.getFlop()[2];
+		allCards[5] = board.getTurn();
+		allCards[6] = board.getRiver();
 
 		if (index < 0 || index >= Constants.NUMBER_OF_POSSIBLE_HANDS_FOR_EVALUATION) {
 			// TODO Exception handling!
@@ -944,7 +944,7 @@ public class MonteCarlo {
 		while (done == 0) {
 			done = 1;
 			for (i = 0; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS - 1; i++) {
-				if (hand[i].kind < hand[i + 1].kind) {
+				if (hand[i].getKind() < hand[i + 1].getKind()) {
 					swap = hand[i];
 					hand[i] = hand[i + 1];
 					hand[i + 1] = swap;
@@ -972,9 +972,9 @@ public class MonteCarlo {
 		while (done == 0) {
 			done = 1;
 			for (i = 0; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS - 1; i++) {
-				if (((hand[i].kind == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
-						: hand[i].kind) < ((hand[i + 1].kind == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
-								: hand[i + 1].kind)) {
+				if (((hand[i].getKind() == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
+						: hand[i].getKind()) < ((hand[i + 1].getKind() == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
+								: hand[i + 1].getKind())) {
 					swap = hand[i];
 					hand[i] = hand[i + 1];
 					hand[i + 1] = swap;
@@ -996,26 +996,26 @@ public class MonteCarlo {
 		/*
 		 * Calculate hand score.
 		 */
-		for (int i = 0; i < game.numberOfPlayers; i++) {
+		for (int i = 0; i < game.getNumberOfPlayers(); i++) {
 			Card[] hand = new Card[Constants.NUMBER_OF_EVALUATION_HAND_CARDS];
 
-			game.players[i].handScore = 0L;
+			game.getPlayers()[i].setHandScore(0L);
 
 			for (int j = 0; j < Constants.NUMBER_OF_POSSIBLE_HANDS_FOR_EVALUATION; j++) {
 				long score = 0L;
 
-				formFiveCardsHand(hand, j, game.players[i], game.board);
+				formFiveCardsHand(hand, j, game.getPlayers()[i], game.getBoard());
 
 				sortWithoutLeadingAce(hand);
 				score = evaluateHand(hand);
-				if (score > game.players[i].handScore) {
-					game.players[i].handScore = score;
+				if (score > game.getPlayers()[i].getHandScore()) {
+					game.getPlayers()[i].setHandScore(score);
 				}
 
 				sortWithLeadingAce(hand);
 				score = evaluateHand(hand);
-				if (score > game.players[i].handScore) {
-					game.players[i].handScore = score;
+				if (score > game.getPlayers()[i].getHandScore()) {
+					game.getPlayers()[i].setHandScore(score);
 				}
 
 			}
@@ -1037,8 +1037,8 @@ public class MonteCarlo {
 		/*
 		 * Find index of the player with the best score.
 		 */
-		for (int i = 0; i < game.numberOfPlayers; i++) {
-			if (game.players[i].handScore > game.players[bestScoreIndex].handScore) {
+		for (int i = 0; i < game.getNumberOfPlayers(); i++) {
+			if (game.getPlayers()[i].getHandScore() > game.getPlayers()[bestScoreIndex].getHandScore()) {
 				bestScoreIndex = i;
 			}
 		}
@@ -1046,8 +1046,8 @@ public class MonteCarlo {
 		/*
 		 * Find how many players have the best score.
 		 */
-		for (int i = 0; i < game.numberOfPlayers; i++) {
-			if (game.players[i].handScore == game.players[bestScoreIndex].handScore) {
+		for (int i = 0; i < game.getNumberOfPlayers(); i++) {
+			if (game.getPlayers()[i].getHandScore() == game.getPlayers()[bestScoreIndex].getHandScore()) {
 				howManyBest++;
 			}
 		}
@@ -1056,11 +1056,11 @@ public class MonteCarlo {
 		 * Update wins or ties counters.
 		 */
 		if (howManyBest == 1) {
-			game.players[bestScoreIndex].winsCounter++;
+			game.getPlayers()[bestScoreIndex].incrementWinsCounter();
 		} else if (howManyBest > 1) {
-			for (int i = 0; i < game.numberOfPlayers; i++) {
-				if (game.players[i].handScore == game.players[bestScoreIndex].handScore) {
-					game.players[i].tiesCounter++;
+			for (int i = 0; i < game.getNumberOfPlayers(); i++) {
+				if (game.getPlayers()[i].getHandScore() == game.getPlayers()[bestScoreIndex].getHandScore()) {
+					game.getPlayers()[i].incrementTiesCounter();
 				}
 			}
 		}
@@ -1116,7 +1116,7 @@ public class MonteCarlo {
 	 * @date 09 Aug 2012
 	 */
 	synchronized public double willWinIn() {
-		return ((double) 100.0 * game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter / (double) currentLoop);
+		return ((double) 100.0 * game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getWinsCounter() / (double) currentLoop);
 	}
 
 	/**
@@ -1130,8 +1130,8 @@ public class MonteCarlo {
 	 * @date 09 Aug 2012
 	 */
 	synchronized public double willNotLooseIn() {
-		return ((double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter
-				+ game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) currentLoop);
+		return ((double) 100.0 * (game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getWinsCounter()
+				+ game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getTiesCounter()) / (double) currentLoop);
 	}
 
 	/**
@@ -1186,15 +1186,15 @@ public class MonteCarlo {
 			}
 
 			if (running == false) {
-				result = (double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter
-						+ game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) currentLoop;
+				result = (double) 100.0 * (game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getWinsCounter()
+						+ game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getTiesCounter()) / (double) currentLoop;
 
 				return (result);
 			}
 		}
 
-		result = (double) 100.0 * (game.players[Constants.HUMAN_PLAYER_INDEX].winsCounter
-				+ game.players[Constants.HUMAN_PLAYER_INDEX].tiesCounter) / (double) numberOfLoops;
+		result = (double) 100.0 * (game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getWinsCounter()
+				+ game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getTiesCounter()) / (double) numberOfLoops;
 
 		return (result);
 	}
