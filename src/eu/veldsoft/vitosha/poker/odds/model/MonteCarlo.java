@@ -27,6 +27,7 @@ package eu.veldsoft.vitosha.poker.odds.model;
 import java.util.Random;
 
 /**
+ * Monte Calo calculator class.
  * 
  * @author Todor Balabanov
  * 
@@ -35,7 +36,6 @@ import java.util.Random;
  * @date 09 Aug 2012
  */
 public class MonteCarlo {
-
 	/**
 	 * Number of loops for the simulation.
 	 */
@@ -67,8 +67,10 @@ public class MonteCarlo {
 	private boolean running = false;
 
 	/**
+	 * Simulation initialization.
 	 * 
 	 * @param numberOfPlayers
+	 *            Number of players on the table.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -203,6 +205,7 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Deck shuffle.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -222,7 +225,7 @@ public class MonteCarlo {
 	}
 
 	/**
-	 * 
+	 * Mark already known cards.
 	 */
 	private void fillKnownCards() {
 		int playerCardsDeckIndex = 2 * Constants.HUMAN_PLAYER_INDEX;
@@ -291,7 +294,8 @@ public class MonteCarlo {
 
 			int j;
 			for (j = 0; j < Constants.NUMBER_OF_CARDS; j++) {
-				if (game.getDeck().getCards()[j].getSuit() == card.getSuit() && game.getDeck().getCards()[j].getKind() == card.getKind()) {
+				if (game.getDeck().getCards()[j].getSuit() == card.getSuit()
+						&& game.getDeck().getCards()[j].getKind() == card.getKind()) {
 					break;
 				}
 			}
@@ -325,6 +329,7 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Deal cards on the table.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -356,6 +361,7 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Mar all players as regular players.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -370,6 +376,7 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Mark dealer index.
 	 * 
 	 * @param dealerIndex
 	 * 
@@ -393,10 +400,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand of one pair.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -412,7 +421,7 @@ public class MonteCarlo {
 		result.setSecondKicker(0);
 		result.setFirstKicker(0);
 		result.setOnePair(0);
-		result.setTwoPair(0);
+		result.setTwoPairs(0);
 		result.setThreeOfKind(0);
 		result.setStraight(0);
 		result.setFlush(0);
@@ -420,32 +429,32 @@ public class MonteCarlo {
 		result.setFourOfKind(0);
 		result.setStraightFlush(0);
 
-		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() != hand[2].getKind() && hand[0].getKind() != hand[3].getKind()
-				&& hand[0].getKind() != hand[4].getKind()) {
+		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() != hand[2].getKind()
+				&& hand[0].getKind() != hand[3].getKind() && hand[0].getKind() != hand[4].getKind()) {
 			result.setOnePair(hand[0].getKind());
 			result.setFirstKicker(hand[2].getKind());
 			result.setSecondKicker(hand[3].getKind());
 			result.setThirdKicker(hand[4].getKind());
 		}
 
-		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() != hand[0].getKind() && hand[1].getKind() != hand[3].getKind()
-				&& hand[1].getKind() != hand[4].getKind()) {
+		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() != hand[0].getKind()
+				&& hand[1].getKind() != hand[3].getKind() && hand[1].getKind() != hand[4].getKind()) {
 			result.setOnePair(hand[1].getKind());
 			result.setFirstKicker(hand[0].getKind());
 			result.setSecondKicker(hand[3].getKind());
 			result.setThirdKicker(hand[4].getKind());
 		}
 
-		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() != hand[0].getKind() && hand[2].getKind() != hand[1].getKind()
-				&& hand[2].getKind() != hand[4].getKind()) {
+		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() != hand[0].getKind()
+				&& hand[2].getKind() != hand[1].getKind() && hand[2].getKind() != hand[4].getKind()) {
 			result.setOnePair(hand[2].getKind());
 			result.setFirstKicker(hand[0].getKind());
 			result.setSecondKicker(hand[1].getKind());
 			result.setThirdKicker(hand[4].getKind());
 		}
 
-		if (hand[3].getKind() == hand[4].getKind() && hand[3].getKind() != hand[0].getKind() && hand[3].getKind() != hand[1].getKind()
-				&& hand[3].getKind() != hand[2].getKind()) {
+		if (hand[3].getKind() == hand[4].getKind() && hand[3].getKind() != hand[0].getKind()
+				&& hand[3].getKind() != hand[1].getKind() && hand[3].getKind() != hand[2].getKind()) {
 			result.setOnePair(hand[3].getKind());
 			result.setFirstKicker(hand[0].getKind());
 			result.setSecondKicker(hand[1].getKind());
@@ -456,10 +465,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand of two pairs.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -467,7 +478,7 @@ public class MonteCarlo {
 	 * 
 	 * @date 09 Aug 2012
 	 */
-	private HandStrength evaluateTwoPair(Card[] hand) {
+	private HandStrength evaluateTwoPairs(Card[] hand) {
 		HandStrength result = new HandStrength();
 		result.setFifthKicker(0);
 		result.setFourthKicker(0);
@@ -475,7 +486,7 @@ public class MonteCarlo {
 		result.setSecondKicker(0);
 		result.setFirstKicker(0);
 		result.setOnePair(0);
-		result.setTwoPair(0);
+		result.setTwoPairs(0);
 		result.setThreeOfKind(0);
 		result.setStraight(0);
 		result.setFlush(0);
@@ -483,23 +494,26 @@ public class MonteCarlo {
 		result.setFourOfKind(0);
 		result.setStraightFlush(0);
 
-		if (hand[0].getKind() == hand[1].getKind() && hand[2].getKind() == hand[3].getKind() && hand[0].getKind() != hand[2].getKind()
-				&& hand[0].getKind() != hand[4].getKind() && hand[2].getKind() != hand[4].getKind()) {
-			result.setTwoPair(hand[0].getKind());
+		if (hand[0].getKind() == hand[1].getKind() && hand[2].getKind() == hand[3].getKind()
+				&& hand[0].getKind() != hand[2].getKind() && hand[0].getKind() != hand[4].getKind()
+				&& hand[2].getKind() != hand[4].getKind()) {
+			result.setTwoPairs(hand[0].getKind());
 			result.setOnePair(hand[2].getKind());
 			result.setFirstKicker(hand[4].getKind());
 		}
 
-		if (hand[0].getKind() == hand[1].getKind() && hand[3].getKind() == hand[4].getKind() && hand[0].getKind() != hand[3].getKind()
-				&& hand[0].getKind() != hand[2].getKind() && hand[3].getKind() != hand[2].getKind()) {
-			result.setTwoPair(hand[0].getKind());
+		if (hand[0].getKind() == hand[1].getKind() && hand[3].getKind() == hand[4].getKind()
+				&& hand[0].getKind() != hand[3].getKind() && hand[0].getKind() != hand[2].getKind()
+				&& hand[3].getKind() != hand[2].getKind()) {
+			result.setTwoPairs(hand[0].getKind());
 			result.setOnePair(hand[3].getKind());
 			result.setFirstKicker(hand[2].getKind());
 		}
 
-		if (hand[1].getKind() == hand[2].getKind() && hand[3].getKind() == hand[4].getKind() && hand[1].getKind() != hand[3].getKind()
-				&& hand[1].getKind() != hand[0].getKind() && hand[3].getKind() != hand[0].getKind()) {
-			result.setTwoPair(hand[1].getKind());
+		if (hand[1].getKind() == hand[2].getKind() && hand[3].getKind() == hand[4].getKind()
+				&& hand[1].getKind() != hand[3].getKind() && hand[1].getKind() != hand[0].getKind()
+				&& hand[3].getKind() != hand[0].getKind()) {
+			result.setTwoPairs(hand[1].getKind());
 			result.setOnePair(hand[3].getKind());
 			result.setFirstKicker(hand[0].getKind());
 		}
@@ -508,10 +522,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand of three of a kind.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -527,7 +543,7 @@ public class MonteCarlo {
 		result.setSecondKicker(0);
 		result.setFirstKicker(0);
 		result.setOnePair(0);
-		result.setTwoPair(0);
+		result.setTwoPairs(0);
 		result.setThreeOfKind(0);
 		result.setStraight(0);
 		result.setFlush(0);
@@ -535,22 +551,25 @@ public class MonteCarlo {
 		result.setFourOfKind(0);
 		result.setStraightFlush(0);
 
-		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind() && hand[0].getKind() != hand[3].getKind()
-				&& hand[0].getKind() != hand[4].getKind() && hand[3].getKind() != hand[4].getKind()) {
+		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind()
+				&& hand[0].getKind() != hand[3].getKind() && hand[0].getKind() != hand[4].getKind()
+				&& hand[3].getKind() != hand[4].getKind()) {
 			result.setThreeOfKind(hand[0].getKind());
 			result.setFirstKicker(hand[3].getKind());
 			result.setSecondKicker(hand[4].getKind());
 		}
 
-		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() == hand[3].getKind() && hand[1].getKind() != hand[0].getKind()
-				&& hand[1].getKind() != hand[4].getKind() && hand[0].getKind() != hand[4].getKind()) {
+		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() == hand[3].getKind()
+				&& hand[1].getKind() != hand[0].getKind() && hand[1].getKind() != hand[4].getKind()
+				&& hand[0].getKind() != hand[4].getKind()) {
 			result.setThreeOfKind(hand[1].getKind());
 			result.setFirstKicker(hand[0].getKind());
 			result.setSecondKicker(hand[4].getKind());
 		}
 
-		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() == hand[4].getKind() && hand[2].getKind() != hand[0].getKind()
-				&& hand[2].getKind() != hand[1].getKind() && hand[0].getKind() != hand[1].getKind()) {
+		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() == hand[4].getKind()
+				&& hand[2].getKind() != hand[0].getKind() && hand[2].getKind() != hand[1].getKind()
+				&& hand[0].getKind() != hand[1].getKind()) {
 			result.setThreeOfKind(hand[2].getKind());
 			result.setFirstKicker(hand[0].getKind());
 			result.setSecondKicker(hand[1].getKind());
@@ -560,10 +579,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand of straight.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -582,7 +603,7 @@ public class MonteCarlo {
 		result.setSecondKicker(0);
 		result.setFirstKicker(0);
 		result.setOnePair(0);
-		result.setTwoPair(0);
+		result.setTwoPairs(0);
 		result.setThreeOfKind(0);
 		result.setStraight(0);
 		result.setFlush(0);
@@ -619,10 +640,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand of flush.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -641,7 +664,7 @@ public class MonteCarlo {
 		result.setSecondKicker(0);
 		result.setFirstKicker(0);
 		result.setOnePair(0);
-		result.setTwoPair(0);
+		result.setTwoPairs(0);
 		result.setThreeOfKind(0);
 		result.setStraight(0);
 		result.setFlush(0);
@@ -669,10 +692,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand of full house.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -688,7 +713,7 @@ public class MonteCarlo {
 		result.setSecondKicker(0);
 		result.setFirstKicker(0);
 		result.setOnePair(0);
-		result.setTwoPair(0);
+		result.setTwoPairs(0);
 		result.setThreeOfKind(0);
 		result.setStraight(0);
 		result.setFlush(0);
@@ -696,17 +721,17 @@ public class MonteCarlo {
 		result.setFourOfKind(0);
 		result.setStraightFlush(0);
 
-		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind() && hand[3].getKind() == hand[4].getKind()
-				&& hand[0].getKind() != hand[3].getKind()) {
+		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind()
+				&& hand[3].getKind() == hand[4].getKind() && hand[0].getKind() != hand[3].getKind()) {
 			result.setThreeOfKind(hand[0].getKind());
-			result.setTwoPair(hand[3].getKind());
+			result.setTwoPairs(hand[3].getKind());
 			result.setFullHouse(1);
 		}
 
-		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() == hand[4].getKind() && hand[0].getKind() == hand[1].getKind()
-				&& hand[0].getKind() != hand[2].getKind()) {
+		if (hand[2].getKind() == hand[3].getKind() && hand[2].getKind() == hand[4].getKind()
+				&& hand[0].getKind() == hand[1].getKind() && hand[0].getKind() != hand[2].getKind()) {
 			result.setThreeOfKind(hand[2].getKind());
-			result.setTwoPair(hand[0].getKind());
+			result.setTwoPairs(hand[0].getKind());
 			result.setFullHouse(1);
 		}
 
@@ -714,10 +739,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand of four of a kind.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -733,7 +760,7 @@ public class MonteCarlo {
 		result.setSecondKicker(0);
 		result.setFirstKicker(0);
 		result.setOnePair(0);
-		result.setTwoPair(0);
+		result.setTwoPairs(0);
 		result.setThreeOfKind(0);
 		result.setStraight(0);
 		result.setFlush(0);
@@ -741,31 +768,32 @@ public class MonteCarlo {
 		result.setFourOfKind(0);
 		result.setStraightFlush(0);
 
-		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind() && hand[0].getKind() == hand[3].getKind()
-				&& hand[0].getKind() != hand[4].getKind()) {
+		if (hand[0].getKind() == hand[1].getKind() && hand[0].getKind() == hand[2].getKind()
+				&& hand[0].getKind() == hand[3].getKind() && hand[0].getKind() != hand[4].getKind()) {
 			result.setOnePair(hand[0].getKind());
-			result.setTwoPair(hand[0].getKind());
+			result.setTwoPairs(hand[0].getKind());
 			result.setFirstKicker(hand[4].getKind());
 			result.setFourOfKind(1);
 		}
 
-		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() == hand[3].getKind() && hand[1].getKind() == hand[4].getKind()
-				&& hand[1].getKind() != hand[0].getKind()) {
+		if (hand[1].getKind() == hand[2].getKind() && hand[1].getKind() == hand[3].getKind()
+				&& hand[1].getKind() == hand[4].getKind() && hand[1].getKind() != hand[0].getKind()) {
 			result.setOnePair(hand[1].getKind());
-			result.setTwoPair(hand[1].getKind());
+			result.setTwoPairs(hand[1].getKind());
 			result.setFirstKicker(hand[0].getKind());
 			result.setFourOfKind(1);
 		}
 
 		return (result);
-
 	}
 
 	/**
+	 * Evaluate hand of straight flush.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -790,10 +818,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand of kikcers.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -809,7 +839,7 @@ public class MonteCarlo {
 		result.setSecondKicker(0);
 		result.setFirstKicker(0);
 		result.setOnePair(0);
-		result.setTwoPair(0);
+		result.setTwoPairs(0);
 		result.setThreeOfKind(0);
 		result.setStraight(0);
 		result.setFlush(0);
@@ -830,10 +860,12 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Evaluate hand.
 	 * 
 	 * @param hand
+	 *            Cards in the hand.
 	 * 
-	 * @return
+	 * @return Hand strength value.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -848,7 +880,7 @@ public class MonteCarlo {
 		strength = evaluateOnePair(hand);
 		result |= strength.getValue();
 
-		strength = evaluateTwoPair(hand);
+		strength = evaluateTwoPairs(hand);
 		result |= strength.getValue();
 
 		strength = evaluateThreeOfKind(hand);
@@ -878,14 +910,19 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Five cards hand forming.
 	 * 
 	 * @param hand
+	 *            Array of cards.
 	 * 
 	 * @param index
+	 *            Index of the current combination.
 	 * 
 	 * @param player
+	 *            Current player.
 	 * 
 	 * @param board
+	 *            Reference to the board object.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -927,8 +964,10 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Hand sort with leading ace.
 	 * 
 	 * @param hand
+	 *            Array of cards.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -955,8 +994,10 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Hand sort without leading ace.
 	 * 
 	 * @param hand
+	 *            Array of cards.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -973,8 +1014,8 @@ public class MonteCarlo {
 			done = 1;
 			for (i = 0; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS - 1; i++) {
 				if (((hand[i].getKind() == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
-						: hand[i].getKind()) < ((hand[i + 1].getKind() == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
-								: hand[i + 1].getKind())) {
+						: hand[i].getKind()) < ((hand[i + 1].getKind() == Constants.CARD_KIND_ACE)
+								? Constants.CARD_KIND_WEAK_ACE : hand[i + 1].getKind())) {
 					swap = hand[i];
 					hand[i] = hand[i + 1];
 					hand[i + 1] = swap;
@@ -985,6 +1026,7 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Hand scor calculation.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -1017,12 +1059,12 @@ public class MonteCarlo {
 				if (score > game.getPlayers()[i].getHandScore()) {
 					game.getPlayers()[i].setHandScore(score);
 				}
-
 			}
 		}
 	}
 
 	/**
+	 * Wins counter update.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -1067,10 +1109,13 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Monte Carlo simulation entry point.
 	 * 
 	 * @param numberOfLoops
+	 *            How many card in the flop are known.
 	 * 
 	 * @param numberOfPlayers
+	 *            How may player are on the table.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -1106,8 +1151,9 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Win chances.
 	 * 
-	 * @return
+	 * @return Percent of the win chances.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -1116,12 +1162,14 @@ public class MonteCarlo {
 	 * @date 09 Aug 2012
 	 */
 	synchronized public double willWinIn() {
-		return ((double) 100.0 * game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getWinsCounter() / (double) currentLoop);
+		return ((double) 100.0 * game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getWinsCounter()
+				/ (double) currentLoop);
 	}
 
 	/**
+	 * Tie and loose chances.
 	 * 
-	 * @return
+	 * @return Percent of the tie and loose chances.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -1135,6 +1183,7 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Simulation stop.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -1147,8 +1196,9 @@ public class MonteCarlo {
 	}
 
 	/**
+	 * Simulation start.
 	 * 
-	 * @return
+	 * @return Simulation results.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -1186,8 +1236,10 @@ public class MonteCarlo {
 			}
 
 			if (running == false) {
-				result = (double) 100.0 * (game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getWinsCounter()
-						+ game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getTiesCounter()) / (double) currentLoop;
+				result = (double) 100.0
+						* (game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getWinsCounter()
+								+ game.getPlayers()[Constants.HUMAN_PLAYER_INDEX].getTiesCounter())
+						/ (double) currentLoop;
 
 				return (result);
 			}

@@ -1,10 +1,10 @@
 package eu.veldsoft.vitosha.poker.odds;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.app.Activity;
 import android.webkit.WebView;
-import android.content.Intent;
 
 /**
  * This class is used to create a WebView so we can display the HTML pages for

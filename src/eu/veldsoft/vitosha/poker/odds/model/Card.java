@@ -1,6 +1,7 @@
 package eu.veldsoft.vitosha.poker.odds.model;
 
 /**
+ * Card class.
  * 
  * @author Todor Balabanov
  * 
@@ -9,7 +10,6 @@ package eu.veldsoft.vitosha.poker.odds.model;
  * @date 09 Aug 2012
  */
 class Card {
-
 	/**
 	 * Suit of the card.
 	 */
@@ -21,14 +21,36 @@ class Card {
 	private int kind;
 
 	/**
-	 * 
+	 * Is the card revealed flag.
 	 */
 	private boolean known;
 
 	/**
+	 * Constructor without parameters.
+	 */
+	public Card() {
+	}
+
+	/**
+	 * Constructor with all parameters.
+	 * 
+	 * @param suit
+	 *            Card suit.
+	 * @param kind
+	 *            Card kind.
+	 * @param known
+	 *            Is the card known flag.
+	 */
+	public Card(int suit, int kind, boolean known) {
+		this.suit = suit;
+		this.kind = kind;
+		this.known = known;
+	}
+
+	/**
 	 * Get the card suit.
 	 * 
-	 * @return suit.
+	 * @return Card suit.
 	 */
 	public int getSuit() {
 		return suit;
@@ -38,6 +60,7 @@ class Card {
 	 * Set the suit of the current card.
 	 * 
 	 * @param suit
+	 *            Card suit.
 	 */
 	public void setSuit(int suit) {
 		this.suit = suit;
@@ -46,7 +69,7 @@ class Card {
 	/**
 	 * Get the card kind.
 	 * 
-	 * @return kind.
+	 * @return Card kind.
 	 */
 	public int getKind() {
 		return kind;
@@ -56,6 +79,7 @@ class Card {
 	 * Set the kind of the current card.
 	 * 
 	 * @param kind
+	 *            Card kind.
 	 */
 	public void setKind(int kind) {
 		this.kind = kind;
@@ -64,7 +88,7 @@ class Card {
 	/**
 	 * Get the known state of the card.
 	 * 
-	 * @return known.
+	 * @return Is the card known.
 	 */
 	public boolean isKnown() {
 		return known;
@@ -74,28 +98,9 @@ class Card {
 	 * Set the known state of the current card.
 	 * 
 	 * @param known
+	 *            Is the card known flag.
 	 */
 	public void setKnown(boolean known) {
 		this.known = known;
 	}
-
-	/**
-	 * Card constructor.
-	 * 
-	 * @param suit
-	 * @param kind
-	 * @param known
-	 */
-	public Card(int suit, int kind, boolean known) {
-		this.suit = suit;
-		this.kind = kind;
-		this.known = known;
-	}
-
-	/**
-	 * Default card constructor.
-	 */
-	public Card() {
-	}
-
 }

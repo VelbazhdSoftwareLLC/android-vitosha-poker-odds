@@ -1,6 +1,7 @@
 package eu.veldsoft.vitosha.poker.odds.model;
 
 /**
+ * Player class.
  * 
  * @author Todor Balabanov
  * 
@@ -21,7 +22,7 @@ class Player {
 	private long money;
 
 	/**
-	 * TODO
+	 * Player type (regular, dealer, blind).
 	 */
 	private int type;
 
@@ -41,9 +42,24 @@ class Player {
 	private long tiesCounter;
 
 	/**
+	 * Constructor without parameters.
+	 * 
+	 * @author Todor Balabanov
+	 * 
+	 * @email tdb@tbsoft.eu
+	 * 
+	 * @date 09 Aug 2012
+	 */
+	public Player() {
+		for (int i = 0; i < hand.length; i++) {
+			hand[i] = new Card();
+		}
+	}
+
+	/**
 	 * Get player's cards in hand.
 	 * 
-	 * @return hand
+	 * @return Array of cards.
 	 */
 	public Card[] getHand() {
 		return hand;
@@ -52,7 +68,8 @@ class Player {
 	/**
 	 * Set player's cards in hand.
 	 * 
-	 * @param hand
+	 * @param Array
+	 *            of cards.
 	 */
 	public void setHand(Card[] hand) {
 		this.hand = hand;
@@ -61,7 +78,7 @@ class Player {
 	/**
 	 * Get player's money.
 	 * 
-	 * @return money
+	 * @return Money value.
 	 */
 	public long getMoney() {
 		return money;
@@ -71,6 +88,7 @@ class Player {
 	 * Set player's money.
 	 * 
 	 * @param money
+	 *            Money value.
 	 */
 	public void setMoney(long money) {
 		this.money = money;
@@ -79,7 +97,7 @@ class Player {
 	/**
 	 * Get player's type.
 	 * 
-	 * @return type
+	 * @return Player type.
 	 */
 	public int getType() {
 		return type;
@@ -89,6 +107,7 @@ class Player {
 	 * Set player's type.
 	 * 
 	 * @param type
+	 *            Player type.
 	 */
 	public void setType(int type) {
 		this.type = type;
@@ -97,7 +116,7 @@ class Player {
 	/**
 	 * Get player's hand score.
 	 * 
-	 * @return handScore
+	 * @return Score of the player's hand.
 	 */
 	public long getHandScore() {
 		return handScore;
@@ -107,6 +126,7 @@ class Player {
 	 * Set player's handScore.
 	 * 
 	 * @param handScore
+	 *            Score for the player's hand.
 	 */
 	public void setHandScore(long handScore) {
 		this.handScore = handScore;
@@ -115,7 +135,7 @@ class Player {
 	/**
 	 * Get player's wins counter.
 	 * 
-	 * @return winsCounter
+	 * @return How many wins the player has.
 	 */
 	public long getWinsCounter() {
 		return winsCounter;
@@ -132,6 +152,7 @@ class Player {
 	 * Set player's win counter.
 	 * 
 	 * @param winsCounter
+	 *            How many wins the player has.
 	 */
 	public void setWinsCounter(long winsCounter) {
 		this.winsCounter = winsCounter;
@@ -140,7 +161,7 @@ class Player {
 	/**
 	 * Get player's tie counter.
 	 * 
-	 * @return tiesCounter
+	 * @return How many ties the player has.
 	 */
 	public long getTiesCounter() {
 		return tiesCounter;
@@ -157,22 +178,9 @@ class Player {
 	 * Set player's tie Counter.
 	 * 
 	 * @param tiesCounter
+	 *            How many ties the player has.
 	 */
 	public void setTiesCounter(long tiesCounter) {
 		this.tiesCounter = tiesCounter;
-	}
-
-	/**
-	 * 
-	 * @author Todor Balabanov
-	 * 
-	 * @email tdb@tbsoft.eu
-	 * 
-	 * @date 09 Aug 2012
-	 */
-	public Player() {
-		for (int i = 0; i < hand.length; i++) {
-			hand[i] = new Card();
-		}
 	}
 }

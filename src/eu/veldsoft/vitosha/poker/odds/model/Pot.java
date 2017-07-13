@@ -1,6 +1,7 @@
 package eu.veldsoft.vitosha.poker.odds.model;
 
 /**
+ * Pot class.
  * 
  * @author Todor Balabanov
  * 
@@ -22,7 +23,7 @@ class Pot {
 	/**
 	 * Get current bets.
 	 * 
-	 * @return bets
+	 * @return Bets amount.
 	 */
 	public long[] getBets() {
 		return bets;
@@ -32,6 +33,7 @@ class Pot {
 	 * Set the current bets.
 	 * 
 	 * @param bets
+	 *            Bets amount.
 	 */
 	public void setBets(long[] bets) {
 		this.bets = bets;
@@ -40,7 +42,7 @@ class Pot {
 	/**
 	 * Get the amount of splits.
 	 * 
-	 * @return numberOfSplits.
+	 * @return Number of splits.
 	 */
 	public int getNumberOfSplits() {
 		return numberOfSplits;
@@ -50,6 +52,7 @@ class Pot {
 	 * Set the amount of splits.
 	 * 
 	 * @param numberOfSplits
+	 *            Number of splits.
 	 */
 	public void setNumberOfSplits(int numberOfSplits) {
 		this.numberOfSplits = numberOfSplits;

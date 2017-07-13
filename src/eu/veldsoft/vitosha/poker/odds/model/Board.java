@@ -1,6 +1,7 @@
 package eu.veldsoft.vitosha.poker.odds.model;
 
 /**
+ * Bame board class.
  * 
  * @author Todor Balabanov
  * 
@@ -80,6 +81,7 @@ class Board {
 	}
 
 	/**
+	 * Constructor without parameters.
 	 * 
 	 * @author Todor Balabanov
 	 * 

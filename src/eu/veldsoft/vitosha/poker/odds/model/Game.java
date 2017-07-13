@@ -1,6 +1,7 @@
 package eu.veldsoft.vitosha.poker.odds.model;
 
 /**
+ * Game class.
  * 
  * @author Todor Balabanov
  * 
@@ -9,7 +10,6 @@ package eu.veldsoft.vitosha.poker.odds.model;
  * @date 09 Aug 2012
  */
 class Game {
-
 	/**
 	 * Deck of cards used in game.
 	 */
@@ -36,96 +36,7 @@ class Game {
 	private Pot pot = new Pot();
 
 	/**
-	 * Get the deck of cards.
-	 * 
-	 * @return deck
-	 */
-	public Deck getDeck() {
-		return deck;
-	}
-
-	/**
-	 * Set the deck of cards.
-	 * 
-	 * @param deck
-	 */
-	public void setDeck(Deck deck) {
-		this.deck = deck;
-	}
-
-	/**
-	 * Get the board.
-	 * 
-	 * @return board
-	 */
-	public Board getBoard() {
-		return board;
-	}
-
-	/**
-	 * Set the game board.
-	 * 
-	 * @param board
-	 */
-	public void setBoard(Board board) {
-		this.board = board;
-	}
-
-	/**
-	 * Get the players playing.
-	 * 
-	 * @return players
-	 */
-	public Player[] getPlayers() {
-		return players;
-	}
-
-	/**
-	 * Set the players in game.
-	 * 
-	 * @param players
-	 */
-	public void setPlayers(Player[] players) {
-		this.players = players;
-	}
-
-	/**
-	 * Get the number of players.
-	 * 
-	 * @return numberOfPlayers
-	 */
-	public int getNumberOfPlayers() {
-		return numberOfPlayers;
-	}
-
-	/**
-	 * Set the number of players in game.
-	 * 
-	 * @param numberOfPlayers
-	 */
-	public void setNumberOfPlayers(int numberOfPlayers) {
-		this.numberOfPlayers = numberOfPlayers;
-	}
-
-	/**
-	 * Get the pot on board.
-	 * 
-	 * @return pot
-	 */
-	public Pot getPot() {
-		return pot;
-	}
-
-	/**
-	 * Set the pot.
-	 * 
-	 * @param pot
-	 */
-	public void setPot(Pot pot) {
-		this.pot = pot;
-	}
-
-	/**
+	 * Constructor without parameters.
 	 * 
 	 * @author Todor Balabanov
 	 * 
@@ -137,5 +48,100 @@ class Game {
 		for (int i = 0; i < players.length; i++) {
 			players[i] = new Player();
 		}
+	}
+
+	/**
+	 * Get the deck of cards.
+	 * 
+	 * @return Deck reference.
+	 */
+	public Deck getDeck() {
+		return deck;
+	}
+
+	/**
+	 * Set the deck of cards.
+	 * 
+	 * @param deck
+	 *            Deck reference.
+	 */
+	public void setDeck(Deck deck) {
+		this.deck = deck;
+	}
+
+	/**
+	 * Get the board.
+	 * 
+	 * @return Board reference.
+	 */
+	public Board getBoard() {
+		return board;
+	}
+
+	/**
+	 * Set the game board.
+	 * 
+	 * @param board
+	 *            Board reference.
+	 */
+	public void setBoard(Board board) {
+		this.board = board;
+	}
+
+	/**
+	 * Get the players playing.
+	 * 
+	 * @return Array with players objects.
+	 */
+	public Player[] getPlayers() {
+		return players;
+	}
+
+	/**
+	 * Set the players in game.
+	 * 
+	 * @param players
+	 *            Array with players objects.
+	 */
+	public void setPlayers(Player[] players) {
+		this.players = players;
+	}
+
+	/**
+	 * Get the number of players.
+	 * 
+	 * @return Number of players.
+	 */
+	public int getNumberOfPlayers() {
+		return numberOfPlayers;
+	}
+
+	/**
+	 * Set the number of players in game.
+	 * 
+	 * @param numberOfPlayers
+	 *            Number of players.
+	 */
+	public void setNumberOfPlayers(int numberOfPlayers) {
+		this.numberOfPlayers = numberOfPlayers;
+	}
+
+	/**
+	 * Get the pot on board.
+	 * 
+	 * @return Pot reference.
+	 */
+	public Pot getPot() {
+		return pot;
+	}
+
+	/**
+	 * Set the pot.
+	 * 
+	 * @param pot
+	 *            Pot reference.
+	 */
+	public void setPot(Pot pot) {
+		this.pot = pot;
 	}
 }
