@@ -1,6 +1,7 @@
 package eu.veldsoft.vitosha.poker.odds.model;
 
 /**
+ * General application constants.
  * 
  * @author Todor Balabanov
  * 
