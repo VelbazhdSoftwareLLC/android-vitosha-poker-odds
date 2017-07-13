@@ -14,7 +14,7 @@ class Player {
 	/**
 	 * Array of cards in player's hand.
 	 */
-	private Card[] hand = new Card[Constants.NUMBER_OF_HAND_CARDS];
+	private Card[] hand = new Card[Constants.NUMBER_OF_HAND_CARDS.value()];
 
 	/**
 	 * Amount of money the player has.

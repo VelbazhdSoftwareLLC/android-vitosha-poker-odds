@@ -12,7 +12,7 @@ class Deck {
 	/**
 	 * Deck consisting of array of cards.
 	 */
-	private Card[] cards = new Card[Constants.NUMBER_OF_CARDS];
+	private Card[] cards = new Card[Constants.NUMBER_OF_CARDS.value()];
 
 	/**
 	 * Constructor without parameters.
