@@ -14,7 +14,7 @@ class Board {
 	/**
 	 * Array of cards contained in the flop.
 	 */
-	private Card[] flopCards = new Card[Constants.NUMBER_OF_FLOP_CARDS.value()];
+	private Card[] flopCards = new Card[Constants.NUMBER_OF_FLOP_CARDS];
 
 	/**
 	 * Turn card.

@@ -23,7 +23,7 @@ class Game {
 	/**
 	 * Players in game.
 	 */
-	private Player[] players = new Player[Constants.MAX_NUMBER_OF_PLAYERS.value()];
+	private Player[] players = new Player[Constants.MAX_NUMBER_OF_PLAYERS];
 
 	/**
 	 * Number of players.
