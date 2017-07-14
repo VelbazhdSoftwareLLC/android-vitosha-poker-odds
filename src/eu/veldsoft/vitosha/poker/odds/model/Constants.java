@@ -28,4 +28,3 @@ class Constants {
 	static final long MIN_PLAYER_MONEY = 100L;
 	static final long MAX_PLAYER_MONEY = 100000L;
 }
-

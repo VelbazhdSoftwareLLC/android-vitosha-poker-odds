@@ -10,15 +10,87 @@ package eu.veldsoft.vitosha.poker.odds.model;
  * @date 09 Aug 2012
  */
 class Card {
+
+	/**
+	 * Card rank enumeration.
+	 * 
+	 * @author Mihail Ernandes
+	 */
+	enum Rank {
+
+		WEAK_ACE(0x1), TWO(0x2), THREE(0x3), FOUR(0x4), FIVE(0x5), SIX(0x6), SEVEN(0x7), EIGHT(0x8), NINE(0x9), TEN(
+				0xA), JACK(0xB), QUEEN(0xC), KING(0xD), ACE(0xE);
+
+		/**
+		 * Value of the constant.
+		 */
+		private int value;
+
+		/**
+		 * Constructor.
+		 * 
+		 * @param value
+		 */
+		private Rank(int value) {
+			this.value = value;
+		}
+
+		/**
+		 * Value of the constant getter.
+		 * 
+		 * @return Value of the constant.
+		 */
+		public int value() {
+			return value;
+		}
+
+	}
+
+	/**
+	 * Card suit enumeration.
+	 * 
+	 * @author Mihail Ernandes
+	 */
+	enum Suit {
+
+		CLUBS(0x10), DIAMONDS(0x20), HEARTS(0x30), SPADES(0x40);
+
+		/**
+		 * Value of the constant.
+		 */
+		private int value;
+
+		/**
+		 * 
+		 * Constructor.
+		 * 
+		 * @param value
+		 */
+		private Suit(int value) {
+			this.value = value;
+		}
+
+		/**
+		 * 
+		 * Value of the constant getter.
+		 * 
+		 * @return Value of the constant.
+		 */
+		public int value() {
+			return value;
+		}
+
+	}
+
 	/**
 	 * Suit of the card.
 	 */
-	private int suit;
+	private Suit suit;
 
 	/**
 	 * Kind of the card.
 	 */
-	private int kind;
+	private Rank rank;
 
 	/**
 	 * Is the card revealed flag.
@@ -41,9 +113,9 @@ class Card {
 	 * @param known
 	 *            Is the card known flag.
 	 */
-	public Card(int suit, int kind, boolean known) {
+	public Card(Suit suit, Rank rank, boolean known) {
 		this.suit = suit;
-		this.kind = kind;
+		this.rank = rank;
 		this.known = known;
 	}
 
@@ -52,7 +124,7 @@ class Card {
 	 * 
 	 * @return Card suit.
 	 */
-	public int getSuit() {
+	public Suit getSuit() {
 		return suit;
 	}
 
@@ -62,27 +134,27 @@ class Card {
 	 * @param suit
 	 *            Card suit.
 	 */
-	public void setSuit(int suit) {
+	public void setSuit(Suit suit) {
 		this.suit = suit;
 	}
 
 	/**
-	 * Get the card kind.
+	 * Get the card rank.
 	 * 
-	 * @return Card kind.
+	 * @return Card rank.
 	 */
-	public int getKind() {
-		return kind;
+	public Rank getRank() {
+		return rank;
 	}
 
 	/**
 	 * Set the kind of the current card.
 	 * 
-	 * @param kind
+	 * @param rank
 	 *            Card kind.
 	 */
-	public void setKind(int kind) {
-		this.kind = kind;
+	public void setRank(Rank rank) {
+		this.rank = rank;
 	}
 
 	/**
@@ -103,4 +175,5 @@ class Card {
 	public void setKnown(boolean known) {
 		this.known = known;
 	}
+
 }

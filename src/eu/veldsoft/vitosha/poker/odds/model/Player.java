@@ -12,6 +12,39 @@ package eu.veldsoft.vitosha.poker.odds.model;
 class Player {
 
 	/**
+	 * Player type enumeration.
+	 * 
+	 * @author Mihail Ernandes
+	 */
+	enum Type {
+
+		REGULAR(0x1), DEALER(0x2), SMALL_BLIND(0x4), BIG_BLIND(0x8);
+
+		/**
+		 * Value of the constant.
+		 */
+		private int value;
+
+		/**
+		 * Constructor.
+		 * 
+		 * @param value
+		 */
+		private Type(int value) {
+			this.value = value;
+		}
+
+		/**
+		 * Value of the constant getter.
+		 * 
+		 * @return Value of the constant.
+		 */
+		public int value() {
+			return value;
+		}
+	}
+
+	/**
 	 * Array of cards in player's hand.
 	 */
 	private Card[] hand = new Card[Constants.NUMBER_OF_HAND_CARDS];
@@ -24,7 +57,7 @@ class Player {
 	/**
 	 * Player type (regular, dealer, blind).
 	 */
-	private int type;
+	private Type type;
 
 	/**
 	 * Player's hand score.
@@ -99,7 +132,7 @@ class Player {
 	 * 
 	 * @return Player type.
 	 */
-	public int getType() {
+	public Type getType() {
 		return type;
 	}
 
@@ -109,7 +142,7 @@ class Player {
 	 * @param type
 	 *            Player type.
 	 */
-	public void setType(int type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
 
