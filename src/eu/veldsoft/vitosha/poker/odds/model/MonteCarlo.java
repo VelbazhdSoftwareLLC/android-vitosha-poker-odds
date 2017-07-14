@@ -65,6 +65,135 @@ public class MonteCarlo {
 	 * Control running thread.
 	 */
 	private boolean running = false;
+	
+	/**
+	 * 
+	 * Card kind constants.
+	 * 
+	 * @author swifty_swizzy
+	 *
+	 */
+	private enum CardKind {
+		WEAK_ACE (0x1),
+		TWO (0x2),
+		THREE (0x3),
+		FOUR (0x4),
+		FIVE (0x5),
+		SIX (0x6),
+		SEVEN (0x7),
+		EIGHT (0x8),
+		NINE (0x9),
+		TEN (0xA),
+		JACK (0xB),
+		QUEEN (0xC),
+		KING (0xD),
+		ACE (0xE);
+
+		/**
+		 * Value of the constant.
+		 */
+		private int value;
+
+		/**
+		 * 
+		 * Constructor.
+		 * 
+		 * @param value
+		 */
+		private CardKind(int value) {
+			this.value = value;
+		}
+		
+		/**
+		 * 
+		 * Value of the constant getter.
+		 * 
+		 * @return Value of the constant.
+		 */
+		public int value() {
+			return this.value;
+		}
+	}
+	
+
+	/**
+	 * 
+	 * Card suit constants.
+	 * 
+	 * @author swifty_swizzy
+	 *
+	 */
+	private enum CardSuit {
+
+		CLUBS (0x10),
+		DIAMONDS (0x20),
+		HEARTS (0x30),
+		SPADES (0x40);
+		
+		/**
+		 * Value of the constant.
+		 */
+		private int value;
+
+		/**
+		 * 
+		 * Constructor.
+		 * 
+		 * @param value
+		 */
+		private CardSuit(int value) {
+			this.value = value;
+		}
+		
+		/**
+		 * 
+		 * Value of the constant getter.
+		 * 
+		 * @return Value of the constant.
+		 */
+		public int value() {
+			return this.value;
+		}
+	}
+	
+	 /** 
+	 * Player constants.
+	 * 
+	 * @author swifty_swizzy
+	 *
+	 */
+	private enum PlayerType {
+
+		REGULAR (0x1),
+		DEALER (0x2),
+		SMALL_BLIND (0x4),
+		BIG_BLIND (0x8);
+		
+		/**
+		 * Value of the constant.
+		 */
+		private int value;
+
+		/**
+		 * 
+		 * Constructor.
+		 * 
+		 * @param value
+		 */
+		private PlayerType(int value) {
+			this.value = value;
+		}
+		
+		/**
+		 * 
+		 * Value of the constant getter.
+		 * 
+		 * @return Value of the constant.
+		 */
+		public int value() {
+			return this.value;
+		}
+	}
 
 	/**
 	 * Simulation initialization.
@@ -84,7 +213,7 @@ public class MonteCarlo {
 		for (int i = 0; i < Constants.MAX_NUMBER_OF_PLAYERS; i++) {
 			game.getPlayers()[i].setMoney(Constants.MIN_PLAYER_MONEY
 					+ (Math.abs(prng.nextInt())) % (Constants.MAX_PLAYER_MONEY - Constants.MIN_PLAYER_MONEY + 1));
-			game.getPlayers()[i].setType(Constants.PLAYER_TYPE_REGULAR);
+			game.getPlayers()[i].setType(PlayerType.REGULAR.value());
 			game.getPlayers()[i].setWinsCounter(0L);
 			game.getPlayers()[i].setTiesCounter(0L);
 		}
@@ -93,113 +222,113 @@ public class MonteCarlo {
 			game.getDeck().getCards()[i].setKnown(false);
 		}
 
-		game.getDeck().getCards()[0].setKind(Constants.CARD_KIND_TWO);
-		game.getDeck().getCards()[0].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[1].setKind(Constants.CARD_KIND_THREE);
-		game.getDeck().getCards()[1].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[2].setKind(Constants.CARD_KIND_FOUR);
-		game.getDeck().getCards()[2].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[3].setKind(Constants.CARD_KIND_FIVE);
-		game.getDeck().getCards()[3].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[4].setKind(Constants.CARD_KIND_SIX);
-		game.getDeck().getCards()[4].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[5].setKind(Constants.CARD_KIND_SEVEN);
-		game.getDeck().getCards()[5].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[6].setKind(Constants.CARD_KIND_EIGHT);
-		game.getDeck().getCards()[6].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[7].setKind(Constants.CARD_KIND_NINE);
-		game.getDeck().getCards()[7].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[8].setKind(Constants.CARD_KIND_TEN);
-		game.getDeck().getCards()[8].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[9].setKind(Constants.CARD_KIND_JACK);
-		game.getDeck().getCards()[9].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[10].setKind(Constants.CARD_KIND_QUEEN);
-		game.getDeck().getCards()[10].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[11].setKind(Constants.CARD_KIND_KING);
-		game.getDeck().getCards()[11].setSuit(Constants.CARD_SUIT_CLUBS);
-		game.getDeck().getCards()[12].setKind(Constants.CARD_KIND_ACE);
-		game.getDeck().getCards()[12].setSuit(Constants.CARD_SUIT_CLUBS);
+		game.getDeck().getCards()[0].setKind(CardKind.TWO.value());
+		game.getDeck().getCards()[0].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[1].setKind(CardKind.THREE.value());
+		game.getDeck().getCards()[1].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[2].setKind(CardKind.FOUR.value());
+		game.getDeck().getCards()[2].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[3].setKind(CardKind.FIVE.value());
+		game.getDeck().getCards()[3].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[4].setKind(CardKind.SIX.value());
+		game.getDeck().getCards()[4].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[5].setKind(CardKind.SEVEN.value());
+		game.getDeck().getCards()[5].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[6].setKind(CardKind.EIGHT.value());
+		game.getDeck().getCards()[6].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[7].setKind(CardKind.NINE.value());
+		game.getDeck().getCards()[7].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[8].setKind(CardKind.TEN.value());
+		game.getDeck().getCards()[8].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[9].setKind(CardKind.JACK.value());
+		game.getDeck().getCards()[9].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[10].setKind(CardKind.QUEEN.value());
+		game.getDeck().getCards()[10].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[11].setKind(CardKind.KING.value());
+		game.getDeck().getCards()[11].setSuit(CardSuit.CLUBS.value());
+		game.getDeck().getCards()[12].setKind(CardKind.ACE.value());
+		game.getDeck().getCards()[12].setSuit(CardSuit.CLUBS.value());
 
-		game.getDeck().getCards()[13].setKind(Constants.CARD_KIND_TWO);
-		game.getDeck().getCards()[13].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[14].setKind(Constants.CARD_KIND_THREE);
-		game.getDeck().getCards()[14].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[15].setKind(Constants.CARD_KIND_FOUR);
-		game.getDeck().getCards()[15].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[16].setKind(Constants.CARD_KIND_FIVE);
-		game.getDeck().getCards()[16].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[17].setKind(Constants.CARD_KIND_SIX);
-		game.getDeck().getCards()[17].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[18].setKind(Constants.CARD_KIND_SEVEN);
-		game.getDeck().getCards()[18].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[19].setKind(Constants.CARD_KIND_EIGHT);
-		game.getDeck().getCards()[19].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[20].setKind(Constants.CARD_KIND_NINE);
-		game.getDeck().getCards()[20].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[21].setKind(Constants.CARD_KIND_TEN);
-		game.getDeck().getCards()[21].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[22].setKind(Constants.CARD_KIND_JACK);
-		game.getDeck().getCards()[22].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[23].setKind(Constants.CARD_KIND_QUEEN);
-		game.getDeck().getCards()[23].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[24].setKind(Constants.CARD_KIND_KING);
-		game.getDeck().getCards()[24].setKind(Constants.CARD_SUIT_DIAMONDS);
-		game.getDeck().getCards()[25].setKind(Constants.CARD_KIND_ACE);
-		game.getDeck().getCards()[25].setKind(Constants.CARD_SUIT_DIAMONDS);
+		game.getDeck().getCards()[13].setKind(CardKind.TWO.value());
+		game.getDeck().getCards()[13].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[14].setKind(CardKind.THREE.value());
+		game.getDeck().getCards()[14].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[15].setKind(CardKind.FOUR.value());
+		game.getDeck().getCards()[15].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[16].setKind(CardKind.FIVE.value());
+		game.getDeck().getCards()[16].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[17].setKind(CardKind.SIX.value());
+		game.getDeck().getCards()[17].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[18].setKind(CardKind.SEVEN.value());
+		game.getDeck().getCards()[18].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[19].setKind(CardKind.EIGHT.value());
+		game.getDeck().getCards()[19].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[20].setKind(CardKind.NINE.value());
+		game.getDeck().getCards()[20].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[21].setKind(CardKind.TEN.value());
+		game.getDeck().getCards()[21].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[22].setKind(CardKind.JACK.value());
+		game.getDeck().getCards()[22].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[23].setKind(CardKind.QUEEN.value());
+		game.getDeck().getCards()[23].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[24].setKind(CardKind.KING.value());
+		game.getDeck().getCards()[24].setKind(CardSuit.DIAMONDS.value());
+		game.getDeck().getCards()[25].setKind(CardKind.ACE.value());
+		game.getDeck().getCards()[25].setKind(CardSuit.DIAMONDS.value());
 
-		game.getDeck().getCards()[26].setKind(Constants.CARD_KIND_TWO);
-		game.getDeck().getCards()[26].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[27].setKind(Constants.CARD_KIND_THREE);
-		game.getDeck().getCards()[27].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[28].setKind(Constants.CARD_KIND_FOUR);
-		game.getDeck().getCards()[28].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[29].setKind(Constants.CARD_KIND_FIVE);
-		game.getDeck().getCards()[29].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[30].setKind(Constants.CARD_KIND_SIX);
-		game.getDeck().getCards()[30].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[31].setKind(Constants.CARD_KIND_SEVEN);
-		game.getDeck().getCards()[31].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[32].setKind(Constants.CARD_KIND_EIGHT);
-		game.getDeck().getCards()[32].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[33].setKind(Constants.CARD_KIND_NINE);
-		game.getDeck().getCards()[33].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[34].setKind(Constants.CARD_KIND_TEN);
-		game.getDeck().getCards()[34].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[35].setKind(Constants.CARD_KIND_JACK);
-		game.getDeck().getCards()[35].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[36].setKind(Constants.CARD_KIND_QUEEN);
-		game.getDeck().getCards()[36].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[37].setKind(Constants.CARD_KIND_KING);
-		game.getDeck().getCards()[37].setKind(Constants.CARD_SUIT_HEARTS);
-		game.getDeck().getCards()[38].setKind(Constants.CARD_KIND_ACE);
-		game.getDeck().getCards()[38].setKind(Constants.CARD_SUIT_HEARTS);
+		game.getDeck().getCards()[26].setKind(CardKind.TWO.value());
+		game.getDeck().getCards()[26].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[27].setKind(CardKind.THREE.value());
+		game.getDeck().getCards()[27].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[28].setKind(CardKind.FOUR.value());
+		game.getDeck().getCards()[28].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[29].setKind(CardKind.FIVE.value());
+		game.getDeck().getCards()[29].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[30].setKind(CardKind.SIX.value());
+		game.getDeck().getCards()[30].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[31].setKind(CardKind.SEVEN.value());
+		game.getDeck().getCards()[31].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[32].setKind(CardKind.EIGHT.value());
+		game.getDeck().getCards()[32].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[33].setKind(CardKind.NINE.value());
+		game.getDeck().getCards()[33].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[34].setKind(CardKind.TEN.value());
+		game.getDeck().getCards()[34].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[35].setKind(CardKind.JACK.value());
+		game.getDeck().getCards()[35].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[36].setKind(CardKind.QUEEN.value());
+		game.getDeck().getCards()[36].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[37].setKind(CardKind.KING.value());
+		game.getDeck().getCards()[37].setKind(CardSuit.HEARTS.value());
+		game.getDeck().getCards()[38].setKind(CardKind.ACE.value());
+		game.getDeck().getCards()[38].setKind(CardSuit.HEARTS.value());
 
-		game.getDeck().getCards()[39].setKind(Constants.CARD_KIND_TWO);
-		game.getDeck().getCards()[39].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[40].setKind(Constants.CARD_KIND_THREE);
-		game.getDeck().getCards()[40].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[41].setKind(Constants.CARD_KIND_FOUR);
-		game.getDeck().getCards()[41].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[42].setKind(Constants.CARD_KIND_FIVE);
-		game.getDeck().getCards()[42].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[43].setKind(Constants.CARD_KIND_SIX);
-		game.getDeck().getCards()[43].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[44].setKind(Constants.CARD_KIND_SEVEN);
-		game.getDeck().getCards()[44].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[45].setKind(Constants.CARD_KIND_EIGHT);
-		game.getDeck().getCards()[45].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[46].setKind(Constants.CARD_KIND_NINE);
-		game.getDeck().getCards()[46].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[47].setKind(Constants.CARD_KIND_TEN);
-		game.getDeck().getCards()[47].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[48].setKind(Constants.CARD_KIND_JACK);
-		game.getDeck().getCards()[48].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[49].setKind(Constants.CARD_KIND_QUEEN);
-		game.getDeck().getCards()[49].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[50].setKind(Constants.CARD_KIND_KING);
-		game.getDeck().getCards()[50].setSuit(Constants.CARD_SUIT_SPADES);
-		game.getDeck().getCards()[51].setKind(Constants.CARD_KIND_ACE);
-		game.getDeck().getCards()[51].setSuit(Constants.CARD_SUIT_SPADES);
+		game.getDeck().getCards()[39].setKind(CardKind.TWO.value());
+		game.getDeck().getCards()[39].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[40].setKind(CardKind.THREE.value());
+		game.getDeck().getCards()[40].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[41].setKind(CardKind.FOUR.value());
+		game.getDeck().getCards()[41].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[42].setKind(CardKind.FIVE.value());
+		game.getDeck().getCards()[42].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[43].setKind(CardKind.SIX.value());
+		game.getDeck().getCards()[43].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[44].setKind(CardKind.SEVEN.value());
+		game.getDeck().getCards()[44].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[45].setKind(CardKind.EIGHT.value());
+		game.getDeck().getCards()[45].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[46].setKind(CardKind.NINE.value());
+		game.getDeck().getCards()[46].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[47].setKind(CardKind.TEN.value());
+		game.getDeck().getCards()[47].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[48].setKind(CardKind.JACK.value());
+		game.getDeck().getCards()[48].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[49].setKind(CardKind.QUEEN.value());
+		game.getDeck().getCards()[49].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[50].setKind(CardKind.KING.value());
+		game.getDeck().getCards()[50].setSuit(CardSuit.SPADES.value());
+		game.getDeck().getCards()[51].setKind(CardKind.ACE.value());
+		game.getDeck().getCards()[51].setSuit(CardSuit.SPADES.value());
 
 		game.getPot().setNumberOfSplits(1);
 	}
@@ -237,58 +366,58 @@ public class MonteCarlo {
 
 			switch (knownCards.charAt(i)) {
 			case '2':
-				card.setKind(Constants.CARD_KIND_TWO);
+				card.setKind(CardKind.TWO.value());
 				break;
 			case '3':
-				card.setKind(Constants.CARD_KIND_THREE);
+				card.setKind(CardKind.THREE.value());
 				break;
 			case '4':
-				card.setKind(Constants.CARD_KIND_FOUR);
+				card.setKind(CardKind.FOUR.value());
 				break;
 			case '5':
-				card.setKind(Constants.CARD_KIND_FIVE);
+				card.setKind(CardKind.FIVE.value());
 				break;
 			case '6':
-				card.setKind(Constants.CARD_KIND_SIX);
+				card.setKind(CardKind.SIX.value());
 				break;
 			case '7':
-				card.setKind(Constants.CARD_KIND_SEVEN);
+				card.setKind(CardKind.SEVEN.value());
 				break;
 			case '8':
-				card.setKind(Constants.CARD_KIND_EIGHT);
+				card.setKind(CardKind.EIGHT.value());
 				break;
 			case '9':
-				card.setKind(Constants.CARD_KIND_NINE);
+				card.setKind(CardKind.NINE.value());
 				break;
 			case 'T':
-				card.setKind(Constants.CARD_KIND_TEN);
+				card.setKind(CardKind.TEN.value());
 				break;
 			case 'J':
-				card.setKind(Constants.CARD_KIND_JACK);
+				card.setKind(CardKind.JACK.value());
 				break;
 			case 'Q':
-				card.setKind(Constants.CARD_KIND_QUEEN);
+				card.setKind(CardKind.QUEEN.value());
 				break;
 			case 'K':
-				card.setKind(Constants.CARD_KIND_KING);
+				card.setKind(CardKind.KING.value());
 				break;
 			case 'A':
-				card.setKind(Constants.CARD_KIND_ACE);
+				card.setKind(CardKind.ACE.value());
 				break;
 			}
 
 			switch (knownCards.charAt(i + 1)) {
 			case 'C':
-				card.setSuit(Constants.CARD_SUIT_CLUBS);
+				card.setSuit(CardSuit.CLUBS.value());
 				break;
 			case 'D':
-				card.setSuit(Constants.CARD_SUIT_DIAMONDS);
+				card.setSuit(CardSuit.DIAMONDS.value());
 				break;
 			case 'H':
-				card.setSuit(Constants.CARD_SUIT_HEARTS);
+				card.setSuit(CardSuit.HEARTS.value());
 				break;
 			case 'S':
-				card.setSuit(Constants.CARD_SUIT_SPADES);
+				card.setSuit(CardSuit.SPADES.value());
 				break;
 			}
 
@@ -371,7 +500,7 @@ public class MonteCarlo {
 	 */
 	private void allPlayersRegular() {
 		for (int i = 0; i < game.getNumberOfPlayers(); i++) {
-			game.getPlayers()[i].setType(Constants.PLAYER_TYPE_REGULAR);
+			game.getPlayers()[i].setType(PlayerType.REGULAR.value());
 		}
 	}
 
@@ -394,9 +523,9 @@ public class MonteCarlo {
 			dealerIndex = game.getNumberOfPlayers() - 1;
 		}
 
-		game.getPlayers()[dealerIndex].setType(Constants.PLAYER_TYPE_DEALER);
-		game.getPlayers()[(dealerIndex + 1) % game.getNumberOfPlayers()].setType(Constants.PLAYER_TYPE_SMALL_BLIND);
-		game.getPlayers()[(dealerIndex + 2) % game.getNumberOfPlayers()].setType(Constants.PLAYER_TYPE_BIG_BLIND);
+		game.getPlayers()[dealerIndex].setType(PlayerType.DEALER.value());
+		game.getPlayers()[(dealerIndex + 1) % game.getNumberOfPlayers()].setType(PlayerType.SMALL_BLIND.value());
+		game.getPlayers()[(dealerIndex + 2) % game.getNumberOfPlayers()].setType(PlayerType.BIG_BLIND.value());
 	}
 
 	/**
@@ -623,7 +752,7 @@ public class MonteCarlo {
 		}
 
 		found = 1;
-		if (hand[0].getKind() != Constants.CARD_KIND_ACE || hand[1].getKind() != Constants.CARD_KIND_FIVE) {
+		if (hand[0].getKind() != CardKind.ACE.value() || hand[1].getKind() != CardKind.FIVE.value()) {
 			found = 0;
 		}
 		for (i = 1; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS - 1; i++) {
@@ -1013,9 +1142,9 @@ public class MonteCarlo {
 		while (done == 0) {
 			done = 1;
 			for (i = 0; i < Constants.NUMBER_OF_EVALUATION_HAND_CARDS - 1; i++) {
-				if (((hand[i].getKind() == Constants.CARD_KIND_ACE) ? Constants.CARD_KIND_WEAK_ACE
-						: hand[i].getKind()) < ((hand[i + 1].getKind() == Constants.CARD_KIND_ACE)
-								? Constants.CARD_KIND_WEAK_ACE : hand[i + 1].getKind())) {
+				if (((hand[i].getKind() == CardKind.ACE.value()) ? CardKind.WEAK_ACE.value()
+						: hand[i].getKind()) < ((hand[i + 1].getKind() == CardKind.ACE.value())
+								? CardKind.WEAK_ACE.value() : hand[i + 1].getKind())) {
 					swap = hand[i];
 					hand[i] = hand[i + 1];
 					hand[i + 1] = swap;
