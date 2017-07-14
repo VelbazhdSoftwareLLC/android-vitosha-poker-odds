@@ -13,7 +13,7 @@ class Pot {
 	/**
 	 * Array of player bets.
 	 */
-	private long[] bets = new long[Constants.MAX_NUMBER_OF_PLAYERS];
+	private long[] bets = new long[Constants.MAX_NUMBER_OF_PLAYERS.value()];
 
 	/**
 	 * Number of splits between players.
