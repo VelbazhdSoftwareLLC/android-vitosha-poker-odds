@@ -1,0 +1,1 @@
+Professional Texas Hold'em poker odds calculator with real-time probability analysis, multiple player support, and advanced hand evaluation features.

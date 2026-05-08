@@ -1,0 +1,36 @@
+Vitosha Poker Odds Calculator is your professional companion for Texas Hold'em poker analysis. Whether you're a beginner learning the game or an experienced player looking to improve your strategy, this app provides comprehensive odds calculation and probability analysis to give you the competitive edge at the poker table.
+
+KEY FEATURES:
+• Real-time odds calculation for any poker scenario
+• Win probability analysis based on remaining cards
+• Support for multiple players (up to 9 players)
+• Detailed hand strength evaluation
+• Pot odds and implied odds calculations
+• Monte Carlo simulation for accurate results
+• Intuitive interface designed for quick use during gameplay
+• Offline functionality - no internet connection required
+• Customizable settings for different game variations
+
+PERFECT FOR:
+• Learning poker mathematics and probabilities
+• Making informed decisions during live games
+• Analyzing past hands to improve your strategy
+• Training your poker intuition
+• Preparing for tournaments and cash games
+
+Whether you're playing at home with friends, at a casino, or online, Vitosha Poker Odds Calculator gives you the mathematical foundation to make better decisions and increase your winning potential. Download now and start playing smarter poker!
+
+ADVANCED ANALYSIS:
+• Pre-flop, flop, turn, and river calculations
+• Outs counting and drawing odds
+• Expected value (EV) calculations
+• Hand range analysis
+• Equity distribution visualization
+
+EDUCATIONAL CONTENT:
+• Built-in poker probability guide
+• Tips for using odds effectively
+• Common scenarios and examples
+• Strategy recommendations based on mathematical analysis
+
+Take your poker game to the next level with data-driven decisions. Vitosha Poker Odds Calculator - Your mathematical advantage at the poker table.
